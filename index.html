@@ -439,6 +439,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
       <p class="eyebrow">Volgende stap</p>
       <h2>Benieuwd wat AI als gereedschap in jouw team oplevert?</h2>
       <p class="lead">Stuur een korte omschrijving van je werk en je grootste tijdvreter. Je krijgt binnen twee werkdagen antwoord, met een eerlijk beeld of de werkscan zinvol is. Zo niet, dan hoor je dat ook.</p>
+      <p id="mailplek" style="margin-top:28px"><noscript>Zet JavaScript aan om het mailadres te zien.</noscript></p>
     </div>
   </section>
 
@@ -459,6 +460,15 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
 </footer>
 
 <script>
+(function(){
+  const d=['info','collegaai','nl'];
+  const a=d[0]+'@'+d[1]+'.'+d[2];
+  const l=document.createElement('a');
+  l.className='knop knop-primair';
+  l.href='mailto:'+a+'?subject='+encodeURIComponent('Werkscan aanvraag');
+  l.textContent='Mail ons';
+  const p=document.getElementById('mailplek'); if(p) p.appendChild(l);
+})();
 document.getElementById('jaar').textContent = new Date().getFullYear();
 const reduceer = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if(!reduceer && 'IntersectionObserver' in window){
