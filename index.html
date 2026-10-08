@@ -286,6 +286,13 @@ footer{border-top:2px solid var(--inkt);padding:0 0 40px;}
 .footer-over{color:var(--inkt-zacht);font-size:.95rem;max-width:64ch;padding:28px 0 20px;}
 @media (max-width:820px){.bewijs{grid-template-columns:1fr;}.bewijs-cel{border-right:none;border-bottom:1px solid var(--lijn);flex-direction:row;align-items:baseline;gap:14px;padding:18px 20px;}}
 
+.bewijs--stil{box-shadow:none;border-color:var(--lijn);}
+.bewijs--stil:hover{transform:none;box-shadow:none;}
+.bewijs--stil .bewijs-label{text-transform:none;letter-spacing:0;font-size:.82rem;}
+.bewijs-voet a{color:var(--inkt-zacht);}
+.bewijs--stil .bewijs-voet{justify-content:flex-start;gap:6px 10px;}
+.bewijs-getal{white-space:nowrap;}
+@media (max-width:820px){.bewijs--stil .bewijs-getal{min-width:3.2ch;}}
 /* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;}
 .reveal.zichtbaar{opacity:1;transform:none;}
@@ -352,12 +359,29 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
     </ul>
   </div>
 
+  <!-- WAAROM NU -->
+  <section id="waarom-nu">
+    <div class="wrap">
+      <div class="sectiekop reveal">
+        <h2>De bouw gebruikt AI het minst van alle sectoren</h2>
+        <span class="bladnr">BLAD 01 &middot; AANLEIDING</span>
+      </div>
+      <div class="bewijs bewijs--stil reveal">
+        <span class="bewijs-cel"><span class="bewijs-getal">11%</span><span class="bewijs-label">van de bouwbedrijven in de EU gebruikt AI, tegen 20% gemiddeld</span></span>
+        <span class="bewijs-cel"><span class="bewijs-getal">2/3</span><span class="bewijs-label">van de organisaties die AI gebruiken, schaalt het nog niet op</span></span>
+        <span class="bewijs-cel"><span class="bewijs-getal">4-7</span><span class="bewijs-label">maanden: zo snel verdubbelt wat AI zelfstandig afrondt</span></span>
+        <span class="bewijs-voet">Bronnen: <a href="https://ec.europa.eu/eurostat/statistics-explained/index.php/Use_of_artificial_intelligence_in_enterprises" rel="noopener" target="_blank">Eurostat 2025</a> &middot; <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" rel="noopener" target="_blank">McKinsey State of AI 2025</a> &middot; <a href="https://metr.org/" rel="noopener" target="_blank">METR</a></span>
+      </div>
+      <p class="posten-slot reveal">Losse chats zijn er al. De stap naar AI die in het werkproces zit, zet bijna niemand, terwijl het gereedschap elke paar maanden beter wordt. Wij helpen die stap te zetten: één werkstroom, meetbaar, daarna opschalen.</p>
+    </div>
+  </section>
+
   <!-- BEWIJS -->
   <section id="pilotscan">
     <div class="wrap">
       <div class="sectiekop reveal">
         <h2>Wat AI in de GWW al doet</h2>
-        <span class="bladnr">BLAD 01 &middot; REFERENTIE</span>
+        <span class="bladnr">BLAD 02 &middot; REFERENTIE</span>
       </div>
       <p class="rev-intro reveal">We brachten AI-, data- en sensortoepassingen bij beheerders van wegen, vaarwegen, kunstwerken en waterkeringen in kaart. Per toepassing de status, het resultaat en het knelpunt, met de bron erbij.</p>
       <a class="bewijs reveal" href="/pilotscan.html" data-goatcounter-click="bewijs-pilotscan">
@@ -389,7 +413,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
     <div class="wrap">
       <div class="sectiekop reveal">
         <h2>Eerst scannen, dan bouwen</h2>
-        <span class="bladnr">BLAD 02 &middot; SCOPE</span>
+        <span class="bladnr">BLAD 03 &middot; SCOPE</span>
       </div>
       <div class="aanbod-grid aanbod-grid--3">
         <div class="kaart kaart--gratis reveal">
@@ -457,7 +481,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
   <!-- CONTACT -->
   <section class="cta" id="contact">
     <div class="wrap reveal">
-      <p class="eyebrow">Blad 03 &middot; Oplevering</p>
+      <p class="eyebrow">Blad 04 &middot; Oplevering</p>
       <h2>Waar gaan jullie uren heen?</h2>
       <p class="lead">Beschrijf in een paar zinnen je werk en je grootste tijdvreter. Je krijgt binnen twee werkdagen antwoord, met een eerlijk oordeel of een werkscan zinvol is.</p>
       <p style="margin-top:28px"><a class="knop knop-primair" href="mailto:info@collegaai.nl?subject=Kennismaking" data-goatcounter-click="mail-kennismaking">info@collegaai.nl</a></p>
