@@ -76,7 +76,7 @@ header{
 }
 .topbalk{
   display:flex;align-items:center;justify-content:space-between;
-  padding:16px 0;gap:16px;
+  padding-top:26px;padding-bottom:16px;gap:16px;
 }
 .logo{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:-.01em;text-decoration:none;color:var(--inkt);}
 .logo em{font-style:normal;color:var(--oranje);}
@@ -128,7 +128,9 @@ h2{
 .wie p{margin-bottom:6px;}
 .contact-alt{font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--inkt-zacht);margin-top:16px;}
 .logo{display:flex;align-items:center;gap:10px;}
-.logo-merk{width:34px;height:34px;flex:none;}
+.logo-merk{width:36px;height:36px;flex:none;}
+.logo-tekst{line-height:1.15;}
+.titelblok-cel .tw a{overflow-wrap:anywhere;}
 .garantie{font-size:.9rem;font-weight:600;color:var(--inkt);border-left:3px solid var(--oranje);padding:6px 0 6px 12px;background:var(--vlak);}
 .tabel-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
 .voorbeeld{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--lijn);font-size:.92rem;}
@@ -272,10 +274,19 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
   .titelblok{grid-template-columns:1fr 1fr;}
   .titelblok-cel:nth-child(2){border-right:none;}
   .post{grid-template-columns:1fr;gap:6px;}
-  .kader{inset:8px;}
   .revtabel th,.revtabel td{padding:10px 8px;}
   .logo-sub{display:none;}
-  .top-cta{padding:8px 10px;font-size:.66rem;}
+  .kader{display:none;}
+  .topbalk{padding-top:14px;padding-bottom:14px;}
+  .top-cta{padding:8px 12px;font-size:.66rem;}
+}
+@media (max-width:480px){
+  .titelblok{grid-template-columns:1fr;}
+  .titelblok-cel{border-right:none;border-bottom:1px solid var(--lijn);}
+  .titelblok-cel:last-child{border-bottom:none;}
+}
+@media (max-width:380px){
+  .cta-lang{display:none;}
 }
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "AI voor ingenieurs- en adviesbureaus in de GWW", "serviceType": "AI-implementatie", "provider": {"@id": "https://collegaai.nl/#org"}, "areaServed": "NL", "audience": {"@type": "BusinessAudience", "audienceType": "Ingenieurs- en adviesbureaus in de grond-, weg- en waterbouw"}, "url": "https://collegaai.nl/gww.html"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://collegaai.nl/"}, {"@type": "ListItem", "position": 2, "name": "AI voor de GWW", "item": "https://collegaai.nl/gww.html"}]}]}</script>
@@ -288,7 +299,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
     <a class="logo" href="/"><svg class="logo-merk" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" fill="#16232E"/><path d="M6 6h10M6 6v10M58 6H48M58 6v10M6 58h10M6 58V48M58 58H48M58 58V48" stroke="#F08A3C" stroke-width="4" fill="none"/><text x="32" y="42" text-anchor="middle" font-family="Archivo,Arial,sans-serif" font-weight="800" font-size="26" fill="#FAFBF9">c<tspan fill="#F08A3C">ai</tspan></text></svg><span class="logo-tekst">collega<em>ai</em>.nl
       <span class="logo-sub">AI-implementatie voor het mkb</span></span>
     </a>
-    <a class="top-cta" href="#contact" data-goatcounter-click="cta-header">Gratis kennismaking</a>
+    <a class="top-cta" href="#contact" data-goatcounter-click="cta-header"><span class="cta-lang">Gratis </span>kennismaking</a>
   </div>
 </header>
 <main id="top">

@@ -85,7 +85,7 @@ header{
 }
 .topbalk{
   display:flex;align-items:center;justify-content:space-between;
-  padding:16px 0;gap:16px;
+  padding-top:26px;padding-bottom:16px;gap:16px;
 }
 .logo{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:-.01em;text-decoration:none;color:var(--inkt);}
 .logo em{font-style:normal;color:var(--oranje);}
@@ -137,7 +137,9 @@ h2{
 .wie p{margin-bottom:6px;}
 .contact-alt{font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--inkt-zacht);margin-top:16px;}
 .logo{display:flex;align-items:center;gap:10px;}
-.logo-merk{width:34px;height:34px;flex:none;}
+.logo-merk{width:36px;height:36px;flex:none;}
+.logo-tekst{line-height:1.15;}
+.titelblok-cel .tw a{overflow-wrap:anywhere;}
 .garantie{font-size:.9rem;font-weight:600;color:var(--inkt);border-left:3px solid var(--oranje);padding:6px 0 6px 12px;background:var(--vlak);}
 .tabel-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
 .voorbeeld{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--lijn);font-size:.92rem;}
@@ -165,7 +167,7 @@ section{padding:clamp(48px,7vw,88px) 0;border-top:1px solid var(--lijn-licht);}
 /* ---------- bestekposten (probleem) ---------- */
 .posten{border-top:2px solid var(--inkt);}
 .post{
-  display:grid;grid-template-columns:110px 1fr;gap:20px;
+  display:grid;grid-template-columns:56px 1fr;gap:20px;
   padding:22px 0;border-bottom:1px solid var(--lijn-licht);
 }
 .post-nr{font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--oranje);padding-top:3px;}
@@ -233,7 +235,7 @@ section{padding:clamp(48px,7vw,88px) 0;border-top:1px solid var(--lijn-licht);}
 
 /* ---------- over ---------- */
 .over-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,64px);align-items:start;}
-.over-tekst p{margin-bottom:16px;color:var(--inkt-zacht);}
+.over-tekst p{margin-bottom:16px;color:var(--inkt-zacht);max-width:62ch;}
 .over-tekst p strong{color:var(--inkt);}
 .maatstaf{border:1px solid var(--lijn);background:#fff;}
 .maatstaf-rij{
@@ -281,10 +283,19 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
   .titelblok{grid-template-columns:1fr 1fr;}
   .titelblok-cel:nth-child(2){border-right:none;}
   .post{grid-template-columns:1fr;gap:6px;}
-  .kader{inset:8px;}
   .revtabel th,.revtabel td{padding:10px 8px;}
   .logo-sub{display:none;}
-  .top-cta{padding:8px 10px;font-size:.66rem;}
+  .kader{display:none;}
+  .topbalk{padding-top:14px;padding-bottom:14px;}
+  .top-cta{padding:8px 12px;font-size:.66rem;}
+}
+@media (max-width:480px){
+  .titelblok{grid-template-columns:1fr;}
+  .titelblok-cel{border-right:none;border-bottom:1px solid var(--lijn);}
+  .titelblok-cel:last-child{border-bottom:none;}
+}
+@media (max-width:380px){
+  .cta-lang{display:none;}
 }
 </style>
 </head>
@@ -297,7 +308,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
     <a class="logo" href="#top"><svg class="logo-merk" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" fill="#16232E"/><path d="M6 6h10M6 6v10M58 6H48M58 6v10M6 58h10M6 58V48M58 58H48M58 58V48" stroke="#F08A3C" stroke-width="4" fill="none"/><text x="32" y="42" text-anchor="middle" font-family="Archivo,Arial,sans-serif" font-weight="800" font-size="26" fill="#FAFBF9">c<tspan fill="#F08A3C">ai</tspan></text></svg><span class="logo-tekst">collega<em>ai</em>.nl
       <span class="logo-sub">AI-implementatie voor het mkb</span></span>
     </a>
-    <a class="top-cta" href="#contact" data-goatcounter-click="cta-header">Gratis kennismaking</a>
+    <a class="top-cta" href="#contact" data-goatcounter-click="cta-header"><span class="cta-lang">Gratis </span>kennismaking</a>
   </div>
 </header>
 
@@ -323,35 +334,35 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
       </div>
       <div class="posten">
         <div class="post reveal">
-          <span class="post-nr">01.01.10</span>
+          <span class="post-nr">01</span>
           <div>
             <h3>Research eet de tijd voordat het werk begint</h3>
             <p>Markt, klant, regelgeving, concurrenten: uitzoeken kost uren, en die uren gaan af van het gesprek met de klant of de uitwerking van de oplossing.</p>
           </div>
         </div>
         <div class="post reveal">
-          <span class="post-nr">01.02.10</span>
+          <span class="post-nr">02</span>
           <div>
             <h3>Concepten blijven liggen</h3>
-            <p>Het idee is er, de uitwerking naar voorstel, offerte of plan schuift door. Niet door gebrek aan kennis, maar omdat de dag vol zit met voorbereiding en losse klussen.</p>
+            <p>Het idee is er, de uitwerking naar voorstel, offerte of plan schuift door. De kennis is er wel. De dag zit vol met voorbereiding en losse klussen.</p>
           </div>
         </div>
         <div class="post reveal">
-          <span class="post-nr">01.03.10</span>
+          <span class="post-nr">03</span>
           <div>
             <h3>Klanttijd verdwijnt in administratie</h3>
             <p>Mails, verslagen, opvolging en rapportage. Nodig werk, maar het is precies het werk dat een goed ingericht systeem grotendeels kan voorbereiden.</p>
           </div>
         </div>
         <div class="post reveal">
-          <span class="post-nr">01.04.10</span>
+          <span class="post-nr">04</span>
           <div>
             <h3>AI blijft steken in losse chats</h3>
-            <p>Een chatvenster helpt bij losse teksten. Het onthoudt jouw klanten, projecten en afspraken niet. Een virtuele collega kent je context en voert stappen zelf uit. Dat heet agentic werken.</p>
+            <p>Een chatvenster helpt bij losse teksten, maar kent jouw klanten, projecten en afspraken niet. Daardoor blijft de winst klein.</p>
           </div>
         </div>
       </div>
-      <p class="posten-slot reveal">De eerste drie posten los je op met de vierde. <span class="accent">Daar begint een virtuele collega.</span></p>
+      <p class="posten-slot reveal">Een virtuele collega kent je context en doet het voorbereidende werk zelf. <span class="accent">Jij houdt de tijd voor de klant.</span></p>
     </div>
   </section>
 
@@ -457,7 +468,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
       <div class="sectiekop reveal">
         <h2>Bouwlog: wat we zelf al draaien</h2>
       </div>
-      <p class="rev-intro reveal">Elke week werken we aan een eigen virtuele collega en delen we wat werkt, wat mislukt en wat het oplevert. Zo zie je precies wat je koopt voordat je iets koopt.</p>
+      <p class="rev-intro reveal">Wat we jou aanbieden, gebruiken we eerst zelf. Hier staat wat al draait. Zo zie je wat je koopt voordat je iets koopt.</p>
       <div class="reveal tabel-scroll">
         <table class="revtabel">
           <caption>Revisiestaat &middot; referentie-implementatie virtuele collega</caption>
@@ -468,25 +479,25 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
             <tr>
               <td class="rev-nr">A</td>
               <td class="rev-datum">2026-07</td>
-              <td>Kennisbasis opgezet: projecten, besluiten en acties in een vaste structuur, doorzoekbaar voor het taalmodel.</td>
+              <td>Eigen kennisbank: projecten, besluiten en acties op één plek, direct doorzoekbaar.</td>
               <td class="rev-status status-af">Gereed</td>
             </tr>
             <tr>
               <td class="rev-nr">B</td>
               <td class="rev-datum">2026-08</td>
-              <td>Eigen agents op basis van open source in gebruik. Ze zijn bereikbaar via een chatapp, houden dagelijks zaken in de gaten, slaan de uitkomsten op en maken er rapportages van.</td>
+              <td>Virtuele collega die dagelijks bronnen volgt en zelf een rapportage maakt. Bereikbaar via een chatapp.</td>
               <td class="rev-status status-af">Gereed</td>
             </tr>
             <tr>
               <td class="rev-nr">C</td>
               <td class="rev-datum">2026-09</td>
-              <td>Workflows opgezet waarin meerdere AI&rsquo;s stapsgewijs zoeken, plannen, werkpakketten opstellen en uitwerken. Een externe review volgt door een AI van een andere leverancier. Niet meer chatten, maar agents aansturen.</td>
+              <td>Van vraag tot uitgewerkt concept in vaste stappen: zoeken, plannen, uitwerken. Een tweede AI controleert het resultaat.</td>
               <td class="rev-status status-af">Gereed</td>
             </tr>
             <tr>
               <td class="rev-nr">D</td>
               <td class="rev-datum">2026-09</td>
-              <td>Waterquickscan gebouwd op open data, voor research over water en bodem als sturend uitgangspunt.</td>
+              <td>Waterquickscan op open data, voor locatievragen over water en bodem.</td>
               <td class="rev-status status-af">Gereed</td>
             </tr>
             <tr>
@@ -505,7 +516,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
 
   <!-- OVER -->
   <section id="over">
-    <div class="wrap over-grid">
+    <div class="wrap">
       <div class="over-tekst reveal">
         <div class="sectiekop">
           <h2>Waarom collegaai bestaat</h2>
@@ -513,13 +524,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
         <p>AI is in het mkb vaak al aanwezig, maar blijft hangen bij losse chats en losse trucs. De winst zit in een werkwijze waarbij AI het voorbereidende werk doet en jij je aandacht richt op klanten en besluiten.</p>
         <p>Wij komen uit de praktijk van technisch en organisatorisch werk: beheer, planvorming, besluitvorming en verandering. Daardoor kennen we beide kanten, de techniek van taalmodellen en werkstromen, en de werkdruk van wie er elke dag mee moet werken.</p>
         <p><strong>Een praktijkpartner</strong> die het gereedschap zelf dagelijks gebruikt en elke werkwijze eerst op zichzelf toetst.</p>
-      </div>
-      <div class="maatstaf reveal" aria-label="Uitgangspunten">
-        <div class="maatstaf-rij"><span class="maatstaf-label">Doelgroep</span><span class="maatstaf-waarde">Mkb, 10 tot 100 medewerkers</span></div>
-        <div class="maatstaf-rij"><span class="maatstaf-label">Aanpak</span><span class="maatstaf-waarde">Eerst scan, dan pilot</span></div>
-        <div class="maatstaf-rij"><span class="maatstaf-label">Focus</span><span class="maatstaf-waarde">Research en conceptuitwerking</span></div>
-        <div class="maatstaf-rij"><span class="maatstaf-label">Principe</span><span class="maatstaf-waarde">Mens in de lus</span></div>
-        <div class="maatstaf-rij"><span class="maatstaf-label">Data</span><span class="maatstaf-waarde">EU en AVG</span></div>
       </div>
     </div>
   </section>
