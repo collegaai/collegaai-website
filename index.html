@@ -138,9 +138,11 @@ h2{
 .wie-foto{width:120px;height:120px;object-fit:cover;border:1px solid var(--lijn);background:var(--vlak);}
 .wie p{margin-bottom:6px;}
 .contact-alt{font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--inkt-zacht);margin-top:16px;}
-.logo{display:flex;flex-direction:column;align-items:flex-start;gap:6px;}
+.logo{display:flex;flex-direction:row;align-items:center;gap:12px;}
+.logo-beeldmerk{display:block;height:40px;width:40px;flex:none;}
+.logo-tekst{display:flex;flex-direction:column;align-items:flex-start;gap:6px;line-height:1.15;}
 .logo-woordmerk{display:block;height:30px;width:auto;}
-.logo-tekst{line-height:1.15;}
+.footer-merk{display:block;width:44px;height:44px;margin:28px 0 0;}
 .titelblok-cel .tw a{overflow-wrap:anywhere;}
 .garantie{font-size:.9rem;font-weight:600;color:var(--inkt);border-left:3px solid var(--oranje);padding:6px 0 6px 12px;background:var(--vlak);}
 .tabel-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
@@ -356,7 +358,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
 
 <header>
   <div class="wrap topbalk">
-    <a class="logo" href="#top"><img class="logo-woordmerk" src="/logo/collegaai-woordmerk.svg" alt="collegaai" width="104" height="30"><span class="logo-sub">AI-implementatie voor de GWW</span></a>
+    <a class="logo" href="#top"><img class="logo-beeldmerk" src="/logo/collegaai-beeldmerk.svg" alt="" width="40" height="40"><span class="logo-tekst"><img class="logo-woordmerk" src="/logo/collegaai-woordmerk.svg" alt="collegaai" width="104" height="30"><span class="logo-sub">AI-implementatie voor de GWW</span></span></a>
     <a class="top-cta" href="#contact" data-goatcounter-click="cta-header"><span class="cta-lang">Gratis </span>strategiesessie</a>
   </div>
 </header>
@@ -580,6 +582,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
 
 <footer>
   <div class="wrap">
+    <img class="footer-merk" src="/logo/collegaai-beeldmerk.svg" alt="" width="44" height="44">
     <p class="footer-over">collegaai komt uit de praktijk van beheer en planvorming in de GWW. We gebruiken het gereedschap zelf, voordat we het bij jou inrichten.</p>
     <div class="titelblok">
       <div class="titelblok-cel"><span class="tl">Contact</span><span class="tw"><a href="mailto:info@collegaai.nl">info@collegaai.nl</a></span></div>
