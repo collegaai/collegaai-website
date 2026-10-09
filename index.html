@@ -298,6 +298,23 @@ footer{border-top:2px solid var(--inkt);padding:0 0 40px;}
 .bewijs--stil .bewijs-voet{justify-content:flex-start;gap:6px 10px;}
 .bewijs-getal{white-space:nowrap;}
 @media (max-width:820px){.bewijs--stil .bewijs-getal{flex:0 0 auto;min-width:4.4ch;}}
+/* ---------- mailformulier ---------- */
+.mailform{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 20px;margin-top:8px;max-width:860px;border-top:2px solid var(--inkt);padding-top:24px;}
+.veld{display:flex;flex-direction:column;gap:6px;}
+.veld--breed{grid-column:1/-1;}
+.veld label{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--inkt);}
+.optioneel{text-transform:none;letter-spacing:0;color:var(--inkt-zacht);}
+.veld select,.veld input,.veld textarea{font:inherit;font-size:.97rem;color:var(--inkt);background:#fff;border:1px solid var(--lijn);border-radius:0;padding:11px 12px;width:100%;}
+.veld textarea{resize:vertical;min-height:84px;}
+.veld select:focus,.veld input:focus,.veld textarea:focus{outline:2px solid var(--oranje);outline-offset:1px;border-color:var(--inkt);}
+.veld ::placeholder{color:#8A949B;}
+.mailform-acties{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:6px;}
+.mailform button{cursor:pointer;border:none;background:none;}
+.mailform .knop-primair{background:var(--oranje);}
+.mailform .knop-secundair{border:1px solid var(--inkt);}
+.mailform-noot{grid-column:1/-1;font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--inkt-zacht);}
+@media (max-width:820px){.mailform{grid-template-columns:1fr;}}
+
 /* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;}
 .reveal.zichtbaar{opacity:1;transform:none;}
@@ -505,8 +522,57 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
     <div class="wrap reveal">
       <p class="eyebrow">Blad 05 &middot; Oplevering</p>
       <h2>Waar gaan jullie uren heen?</h2>
-      <p class="lead">Beschrijf in een paar zinnen je werk en je grootste tijdvreter. Je krijgt binnen twee werkdagen een voorstel voor een gratis strategiesessie van twee uur.</p>
-      <p style="margin-top:28px"><a class="knop knop-primair" href="mailto:info@collegaai.nl?subject=Strategiesessie" data-goatcounter-click="mail-strategiesessie">info@collegaai.nl</a></p>
+      <p class="lead">Vul hieronder kort in wie jullie zijn en waar het knelt. We zetten er een mail van klaar die je zelf nog kunt aanpassen. Je krijgt binnen twee werkdagen een voorstel voor een gratis strategiesessie van twee uur.</p>
+      <form class="mailform" id="mailform" novalidate>
+        <div class="veld">
+          <label for="mf-type">Type bedrijf</label>
+          <select id="mf-type">
+            <option value="">Kies…</option>
+            <option>Ingenieurs- of adviesbureau</option>
+            <option>Aannemer</option>
+            <option>Groen- of infrabedrijf</option>
+            <option>Toeleverancier</option>
+            <option>Anders</option>
+          </select>
+        </div>
+        <div class="veld">
+          <label for="mf-grootte">Aantal medewerkers</label>
+          <select id="mf-grootte">
+            <option value="">Kies…</option>
+            <option>1 tot 10</option>
+            <option>11 tot 50</option>
+            <option>51 tot 250</option>
+            <option>Meer dan 250</option>
+          </select>
+        </div>
+        <div class="veld">
+          <label for="mf-ai">Wat doen jullie al met AI?</label>
+          <select id="mf-ai">
+            <option value="">Kies…</option>
+            <option>Nog niets</option>
+            <option>Losse proeven (ChatGPT, Copilot)</option>
+            <option>Vast in gebruik in een proces</option>
+          </select>
+        </div>
+        <div class="veld veld--breed">
+          <label for="mf-tijdvreter">Grootste tijdvreter of uitdaging</label>
+          <textarea id="mf-tijdvreter" rows="3" placeholder="Bijvoorbeeld: meerwerk en opleverstukken zoeken we per project opnieuw bij elkaar uit mail en Excel."></textarea>
+        </div>
+        <div class="veld veld--breed">
+          <label for="mf-bronnen">Waar staat de informatie nu? <span class="optioneel">optioneel</span></label>
+          <input id="mf-bronnen" type="text" placeholder="Bijvoorbeeld: SharePoint, losse Excels, planningstool, mailbox">
+        </div>
+        <div class="veld veld--breed">
+          <label for="mf-vraag">Wat wil je na de sessie weten? <span class="optioneel">optioneel</span></label>
+          <input id="mf-vraag" type="text" placeholder="Bijvoorbeeld: of het zich terugverdient, en waar we beginnen">
+        </div>
+        <div class="mailform-acties">
+          <button type="submit" class="knop knop-primair" data-goatcounter-click="mail-strategiesessie-formulier">Zet mijn mail klaar</button>
+          <button type="button" class="knop knop-secundair" id="mf-kopieer">Kopieer tekst</button>
+        </div>
+        <p class="mailform-noot" id="mf-status">Er wordt niets verstuurd of opgeslagen. Je mailprogramma opent met de tekst erin, en jij drukt zelf op verzenden.</p>
+      </form>
+      <p class="contact-alt">Liever direct mailen? <a class="tekstlink" href="mailto:info@collegaai.nl?subject=Strategiesessie&amp;body=Type%20bedrijf%3A%20%0AAantal%20medewerkers%3A%20%0AWat%20doen%20we%20al%20met%20AI%3A%20%0AGrootste%20tijdvreter%3A%20%0AWaar%20staat%20de%20informatie%20nu%3A%20%0AWat%20ik%20na%20de%20sessie%20wil%20weten%3A%20" data-goatcounter-click="mail-strategiesessie">info@collegaai.nl</a></p>
     </div>
   </section>
 
@@ -528,6 +594,60 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
 
 <script>
 document.getElementById('jaar').textContent = new Date().getFullYear();
+
+(function(){
+  const form = document.getElementById('mailform');
+  if(!form) return;
+  const w = id => document.getElementById(id).value.trim();
+  const status = document.getElementById('mf-status');
+  function tekst(){
+    const regels = [
+      'Hallo,',
+      '',
+      'Graag plan ik een strategiesessie. Hieronder kort onze situatie.',
+      '',
+      'Type bedrijf: ' + (w('mf-type') || ''),
+      'Aantal medewerkers: ' + (w('mf-grootte') || ''),
+      'Wat we al met AI doen: ' + (w('mf-ai') || ''),
+      '',
+      'Grootste tijdvreter of uitdaging:',
+      w('mf-tijdvreter') || '',
+      '',
+      'Waar de informatie nu staat: ' + (w('mf-bronnen') || ''),
+      'Wat ik na de sessie wil weten: ' + (w('mf-vraag') || ''),
+      '',
+      'Bedrijfsnaam:',
+      'Telefoon (optioneel):',
+      '',
+      'Met vriendelijke groet,',
+      ''
+    ];
+    return regels.join('\n');
+  }
+  function onderwerp(){
+    const delen = [w('mf-type'), w('mf-grootte') && w('mf-grootte') + ' medewerkers'].filter(Boolean);
+    return 'Strategiesessie' + (delen.length ? ': ' + delen.join(', ') : '');
+  }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!w('mf-tijdvreter')){
+      status.textContent = 'Vul in elk geval je grootste tijdvreter of uitdaging in.';
+      document.getElementById('mf-tijdvreter').focus();
+      return;
+    }
+    window.location.href = 'mailto:info@collegaai.nl?subject=' + encodeURIComponent(onderwerp()) + '&body=' + encodeURIComponent(tekst());
+    status.textContent = 'Je mailprogramma opent nu. Gebeurt er niets? Kopieer de tekst en mail naar info@collegaai.nl.';
+  });
+  document.getElementById('mf-kopieer').addEventListener('click', function(){
+    const t = 'Aan: info@collegaai.nl\nOnderwerp: ' + onderwerp() + '\n\n' + tekst();
+    const klaar = () => { status.textContent = 'Tekst gekopieerd. Plak hem in een nieuwe mail aan info@collegaai.nl.'; };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(klaar, () => { status.textContent = 'Kopiëren lukte niet. Mail ons gerust direct op info@collegaai.nl.'; });
+    } else {
+      status.textContent = 'Kopiëren wordt in deze browser niet ondersteund. Mail ons direct op info@collegaai.nl.';
+    }
+  });
+})();
 const reduceer = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if(!reduceer && 'IntersectionObserver' in window){
   const obs = new IntersectionObserver((entries)=>{
