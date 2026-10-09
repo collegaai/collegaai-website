@@ -567,7 +567,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
           <input id="mf-vraag" type="text" placeholder="Bijvoorbeeld: of het zich terugverdient, en waar we beginnen">
         </div>
         <div class="mailform-acties">
-          <button type="submit" class="knop knop-primair" data-goatcounter-click="mail-strategiesessie-formulier">Zet mijn mail klaar</button>
+          <button type="submit" class="knop knop-primair">Zet mijn mail klaar</button>
           <button type="button" class="knop knop-secundair" id="mf-kopieer">Kopieer tekst</button>
         </div>
         <p class="mailform-noot" id="mf-status">Er wordt niets verstuurd of opgeslagen. Je mailprogramma opent met de tekst erin, en jij drukt zelf op verzenden.</p>
@@ -600,6 +600,23 @@ document.getElementById('jaar').textContent = new Date().getFullYear();
   if(!form) return;
   const w = id => document.getElementById(id).value.trim();
   const status = document.getElementById('mf-status');
+  const slug = s => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+  function tel(naam, titel){
+    try{
+      if(window.goatcounter && window.goatcounter.count){
+        window.goatcounter.count({path: 'formulier-' + naam, title: titel || naam, event: true});
+      }
+    }catch(e){}
+  }
+  let gestart = false;
+  form.addEventListener('input', function(){ if(!gestart){ gestart = true; tel('gestart', 'Formulier: begonnen met invullen'); } });
+  form.addEventListener('change', function(){ if(!gestart){ gestart = true; tel('gestart', 'Formulier: begonnen met invullen'); } });
+  function telKeuzes(){
+    [['type','mf-type'],['grootte','mf-grootte'],['ai','mf-ai']].forEach(function(k){
+      const v = w(k[1]);
+      tel(k[0] + '-' + (v ? slug(v) : 'leeg'), 'Formulier ' + k[0] + ': ' + (v || 'niet ingevuld'));
+    });
+  }
   function tekst(){
     const regels = [
       'Hallo,',
@@ -632,14 +649,19 @@ document.getElementById('jaar').textContent = new Date().getFullYear();
     e.preventDefault();
     if(!w('mf-tijdvreter')){
       status.textContent = 'Vul in elk geval je grootste tijdvreter of uitdaging in.';
+      tel('fout-tijdvreter-leeg', 'Formulier: verplicht veld leeg');
       document.getElementById('mf-tijdvreter').focus();
       return;
     }
+    tel('mail-geopend', 'Formulier: mail klaargezet');
+    telKeuzes();
     window.location.href = 'mailto:info@collegaai.nl?subject=' + encodeURIComponent(onderwerp()) + '&body=' + encodeURIComponent(tekst());
     status.textContent = 'Je mailprogramma opent nu. Gebeurt er niets? Kopieer de tekst en mail naar info@collegaai.nl.';
   });
   document.getElementById('mf-kopieer').addEventListener('click', function(){
     const t = 'Aan: info@collegaai.nl\nOnderwerp: ' + onderwerp() + '\n\n' + tekst();
+    tel('gekopieerd', 'Formulier: tekst gekopieerd');
+    telKeuzes();
     const klaar = () => { status.textContent = 'Tekst gekopieerd. Plak hem in een nieuwe mail aan info@collegaai.nl.'; };
     if(navigator.clipboard && navigator.clipboard.writeText){
       navigator.clipboard.writeText(t).then(klaar, () => { status.textContent = 'Kopiëren lukte niet. Mail ons gerust direct op info@collegaai.nl.'; });
