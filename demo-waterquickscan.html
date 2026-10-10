@@ -21,7 +21,7 @@
 <link rel="preload" href="/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <script data-goatcounter="https://collegaai.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 <style>
-:root{--paper:#F4F2EE;--kaart:#fff;--rand:#D3D0C9;--rand-sterk:#B9B5AC;--ink:#14262E;--ink-zacht:#41525F;--ink-flauw:#66737C;--accent:#0F4C5C;--accent-zacht:#E2EAEC;--groen:#2E7D5B;--groen-vlak:#E6F0E9;--oranje:#B26B12;--oranje-vlak:#F7EDDF;--rood:#A8322F;--rood-vlak:#F7E7E5;--grijs:#66737C;--grijs-vlak:#ECE9E3;--uitsluiting:#5B4B8A;--uitsluiting-vlak:#EEEBF3;--signaal:#B5470A}
+:root{--r:10px;--r-klein:6px;--paper:#F4F2EE;--kaart:#fff;--rand:#D3D0C9;--rand-sterk:#B9B5AC;--ink:#14262E;--ink-zacht:#41525F;--ink-flauw:#66737C;--accent:#0F4C5C;--accent-zacht:#E2EAEC;--groen:#2E7D5B;--groen-vlak:#E6F0E9;--oranje:#B26B12;--oranje-vlak:#F7EDDF;--rood:#A8322F;--rood-vlak:#F7E7E5;--grijs:#66737C;--grijs-vlak:#ECE9E3;--uitsluiting:#5B4B8A;--uitsluiting-vlak:#EEEBF3;--signaal:#B5470A}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 'IBM Plex Sans',sans-serif;font-variant-numeric:tabular-nums}
 .wrap{max-width:1060px;margin:0 auto;padding:0 24px 96px}
@@ -42,7 +42,7 @@ header.kop{border-bottom:1px solid var(--rand);padding:56px 0 30px;margin-bottom
 section{margin:52px 0}.lead{font-size:1.13rem;color:var(--ink-zacht)}
 ul.conclusies{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;align-items:stretch}
 ul.conclusies li{display:flex}
-ul.conclusies a{flex:1;display:flex;flex-direction:column;gap:8px;padding:14px 16px;border:1px solid var(--rand);border-radius:2px;text-decoration:none;color:inherit}
+ul.conclusies a{flex:1;display:flex;flex-direction:column;gap:8px;padding:14px 16px;border:1px solid var(--rand);border-radius:var(--r);text-decoration:none;color:inherit}
 ul.conclusies a:hover{border-color:var(--rand-sterk)}
 .conclusie-label{font-family:'Outfit',sans-serif;font-size:.98rem;color:var(--ink)}
 .conclusie-kern{display:flex;align-items:baseline;gap:7px}
@@ -70,14 +70,14 @@ ul.metingen{margin:0;padding-left:20px;color:var(--ink-zacht);font-size:.94rem;d
 .dekking-keuze{display:block;font-size:.74rem;color:var(--ink-flauw);margin-top:1px}
 .dekking li p{margin:4px 0 0;font-size:.86rem;color:var(--ink-zacht)}
 .dekking-niet li strong{color:var(--ink-zacht)}
-.wbs-kader{background:var(--grijs-vlak);border:1px solid var(--rand);border-radius:2px;padding:16px 20px;margin-top:18px}
+.wbs-kader{background:var(--grijs-vlak);border:1px solid var(--rand);border-radius:var(--r);padding:16px 20px;margin-top:18px}
 .wbs-kader p:last-child{margin:6px 0 0;font-size:.88rem;color:var(--ink-zacht)}
 .kleurlegenda{margin:0 0 52px}
 .kleurlegenda-rij{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 18px}
 .kleurlegenda-rij li{display:flex;align-items:center;gap:7px;font-size:.85rem;color:var(--ink-zacht)}
 .dot{width:11px;height:11px;border-radius:50%}
 .dot.groen{background:var(--groen)}.dot.oranje{background:var(--oranje)}.dot.rood{background:var(--rood)}.dot.uitsluiting{background:var(--uitsluiting)}
-.hero{background:var(--ink);color:#fff;border-radius:2px;padding:28px 30px 24px;margin:24px 0 0}
+.hero{background:var(--ink);color:#fff;border-radius:var(--r);padding:28px 30px 24px;margin:24px 0 0}
 .hero .eyebrow{color:rgba(255,255,255,.85);margin-bottom:6px}
 .hero h1{font-size:clamp(1.8rem,4vw,2.6rem);color:#fff}
 .hero .adres{font-size:1.05rem;opacity:.92;margin:0 0 4px}
@@ -91,7 +91,7 @@ ul.metingen{margin:0;padding-left:20px;color:var(--ink-zacht);font-size:.94rem;d
 .scenario-sectie{margin:0}
 .scenario-sectie h2{margin-bottom:10px}
 .kerncijfers{display:flex;flex-direction:column;gap:10px}
-.tegel{background:var(--kaart);border:1px solid var(--rand);border-left:4px solid var(--grijs);border-radius:2px;padding:14px 16px;display:flex;flex-direction:column;gap:5px}
+.tegel{background:var(--kaart);border:1px solid var(--rand);border-left:4px solid var(--grijs);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:5px}
 .tegel.groen{border-left-color:var(--groen)}.tegel.oranje{border-left-color:var(--oranje)}.tegel.rood{border-left-color:var(--rood)}.tegel.onbekend{border-left-color:var(--grijs)}
 .tegel .naam{font-size:.8rem;color:var(--ink-zacht);font-weight:600}
 .kerncijfer{display:flex;align-items:baseline;gap:9px}
@@ -102,7 +102,7 @@ ul.metingen{margin:0;padding-left:20px;color:var(--ink-zacht);font-size:.94rem;d
 .tegel .oordeel{font-size:.8rem;font-weight:600}
 .tegel.groen .oordeel{color:var(--groen)}.tegel.oranje .oordeel{color:var(--oranje)}.tegel.rood .oordeel{color:var(--rood)}.tegel.onbekend .oordeel{color:var(--grijs)}
 .tegel .pijler{font-size:.72rem;color:var(--ink-flauw);border-top:1px solid var(--rand);padding-top:7px;margin-top:3px}
-.zone{background:var(--uitsluiting-vlak);border:1px solid var(--rand);border-left:4px solid var(--uitsluiting);border-radius:2px;padding:14px 16px;display:flex;gap:10px;align-items:flex-start}
+.zone{background:var(--uitsluiting-vlak);border:1px solid var(--rand);border-left:4px solid var(--uitsluiting);border-radius:var(--r);padding:14px 16px;display:flex;gap:10px;align-items:flex-start}
 .zone .icoon{font-size:1.2rem;line-height:1.2;color:var(--uitsluiting)}
 .zone .zone-in{flex:1}
 .zone h3{margin:0;font-size:1rem}
@@ -111,14 +111,14 @@ ul.metingen{margin:0;padding-left:20px;color:var(--ink-zacht);font-size:.94rem;d
 .zone .uz-bron{font-size:.78rem;color:var(--ink-flauw);margin-top:8px}
 .sectie{margin:48px 0 20px}
 .sectie h2{font-family:'Outfit',sans-serif;font-size:1.45rem}
-.thema-kaart{background:var(--kaart);border:1px solid var(--rand);border-left:4px solid var(--grijs);border-radius:2px;padding:18px 20px;margin-bottom:12px}
+.thema-kaart{background:var(--kaart);border:1px solid var(--rand);border-left:4px solid var(--grijs);border-radius:var(--r);padding:18px 20px;margin-bottom:12px}
 .thema-kaart.groen{border-left-color:var(--groen)}.thema-kaart.oranje{border-left-color:var(--oranje)}.thema-kaart.rood{border-left-color:var(--rood)}.thema-kaart.onbekend{border-left-color:var(--grijs)}
 .thema-kaart h3{font-family:'Outfit',sans-serif;font-size:1.15rem;margin:0}
 .thema-kaart>p{margin:6px 0 0}
 .wbs-pijler{margin:2px 0 10px;font-size:.8rem;color:var(--ink-flauw)}
 .wbs-pijler span{font-weight:700;letter-spacing:.02em}
 .wbs-pijler span::after{content:" \00b7"}
-.uitsluitingszone{background:var(--uitsluiting-vlak);border:1px solid var(--rand);border-left:3px solid var(--uitsluiting);border-radius:2px;padding:20px 24px;margin-top:26px}
+.uitsluitingszone{background:var(--uitsluiting-vlak);border:1px solid var(--rand);border-left:3px solid var(--uitsluiting);border-radius:var(--r);padding:20px 24px;margin-top:26px}
 .uz-eyebrow{color:var(--uitsluiting);margin-bottom:6px}
 .uz-kop{display:flex;align-items:center;gap:10px;margin-bottom:6px}
 .uz-icoon{font-size:1.2rem;line-height:1;color:var(--uitsluiting)}
@@ -126,7 +126,7 @@ ul.metingen{margin:0;padding-left:20px;color:var(--ink-zacht);font-size:.94rem;d
 .uitsluitingszone h3{font-family:'Outfit',sans-serif}
 .uz-bron{font-size:.8rem;color:var(--ink-flauw);margin-top:10px}
 .uz-afwezig{font-size:.86rem;color:var(--ink-flauw);margin-top:26px}
-.scenario{background:var(--kaart);border:1px solid var(--rand);border-radius:2px;overflow:hidden;margin-top:20px}
+.scenario{background:var(--kaart);border:1px solid var(--rand);border-radius:var(--r);overflow:hidden;margin-top:20px}
 .knoppen{display:flex;flex-wrap:wrap;gap:8px;padding:16px 18px;border-bottom:1px solid var(--rand)}
 button.kies{font:inherit;font-size:.85rem;font-weight:600;padding:11px 16px;min-height:44px;border-radius:999px;border:1px solid var(--rand-sterk);background:transparent;color:var(--ink-zacht);cursor:pointer;white-space:nowrap}
 button.kies[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
@@ -140,9 +140,9 @@ button.kies:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .onderlaag img{position:absolute;display:block}
 .kaartherkomst{position:absolute;left:0;right:0;bottom:0;margin:0;padding:4px 8px;font-size:.6rem;line-height:1.3;background:rgba(255,255,255,.82);color:#3a3a3a}
 .kaartknoppen{position:absolute;right:8px;top:8px;display:flex;flex-direction:column;gap:4px;z-index:2}
-.kaartknoppen .zoom{width:30px;height:30px;border-radius:2px;border:1px solid rgba(0,0,0,.25);background:rgba(255,255,255,.92);color:#1a1a1a;font-size:1.05rem;line-height:1;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.35)}
+.kaartknoppen .zoom{width:30px;height:30px;border-radius:999px;border:1px solid rgba(0,0,0,.25);background:rgba(255,255,255,.92);color:#1a1a1a;font-size:1.05rem;line-height:1;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.35)}
 .kaartknoppen .zoom:hover{background:#fff}
-.legenda{position:absolute;left:8px;bottom:8px;max-width:70px;max-height:110px;background:rgba(255,255,255,.92);border-radius:4px;padding:3px;z-index:2}
+.legenda{position:absolute;left:8px;bottom:8px;max-width:70px;max-height:110px;background:rgba(255,255,255,.92);border-radius:var(--r-klein);padding:3px;z-index:2}
 .knoplabel{align-self:center;font-size:.7rem;text-transform:uppercase;letter-spacing:.04em;font-weight:700;color:var(--ink-zacht);margin-right:2px}
 .ondergrondkiezer{padding-top:12px}
 /* Vaste, van het thema losstaande kleuren: dit kruis ligt over een foto-
@@ -158,14 +158,14 @@ button.kies:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .uitleg{padding:22px 24px;display:flex;flex-direction:column;gap:10px}
 .groot{font-family:'Outfit',sans-serif;font-size:2rem;line-height:1}
 .geen-score{font-size:.82rem;color:var(--ink-flauw);font-style:italic;margin:-4px 0 0}
-.balk{height:7px;border-radius:4px;background:var(--grijs-vlak);overflow:hidden}
+.balk{height:7px;border-radius:var(--r-klein);background:var(--grijs-vlak);overflow:hidden}
 .balk i{display:block;height:100%;background:var(--accent)}
-.vervolg{background:var(--kaart);border:1px solid var(--rand);border-radius:2px;padding:32px}
+.vervolg{background:var(--kaart);border:1px solid var(--rand);border-radius:var(--r);padding:32px}
 .vervolg-in{display:grid;grid-template-columns:1.35fr 1fr;gap:36px;align-items:start}
 @media(max-width:820px){.vervolg-in{grid-template-columns:1fr;gap:26px}}
 ul.toevoeg{list-style:none;padding:0;margin:14px 0 0;display:flex;flex-direction:column;gap:9px}
 ul.toevoeg li{position:relative;padding-left:24px;font-size:.94rem;color:var(--ink-zacht)}
-ul.toevoeg li::before{content:"";position:absolute;left:2px;top:.62em;width:9px;height:9px;border-radius:2px;background:var(--accent)}
+ul.toevoeg li::before{content:"";position:absolute;left:2px;top:.62em;width:9px;height:9px;border-radius:var(--r);background:var(--accent)}
 .uitspraak{border-left:3px solid var(--rand-sterk);padding-left:20px}
 .uitspraak p{font-size:.92rem;color:var(--ink-zacht)}
 .bron-ref{font-size:.76rem!important;color:var(--ink-flauw)!important}
@@ -182,34 +182,34 @@ table.bronnen td{padding:6px 10px 6px 0;border-top:1px solid var(--rand);vertica
 table.bronnen .ref{color:var(--ink-flauw)}
 .stempel{margin-top:24px;font-size:.72rem;color:var(--ink-flauw)}
 a{color:var(--accent)}
-a.actie{display:inline-block;margin-top:20px;background:var(--accent);color:#fff;font-weight:600;font-size:.95rem;padding:14px 22px;min-height:44px;border-radius:2px;text-decoration:none}
+a.actie{display:inline-block;margin-top:20px;background:var(--accent);color:#fff;font-weight:600;font-size:.95rem;padding:14px 22px;min-height:44px;border-radius:999px;text-decoration:none}
 a.actie:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .kic{margin:52px 0}
 .kic-intro{max-width:62ch;color:var(--ink-zacht);font-size:.94rem;margin:6px 0 16px}
 .kic .dot{display:inline-block;width:.6rem;height:.6rem;border-radius:50%;flex:none}
 .kic-oordelen{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
-.kic-oordeel{font:inherit;font-size:.82rem;font-weight:600;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;min-height:40px;border-radius:2px;border:1px solid var(--rand);background:var(--kaart);color:var(--ink);cursor:pointer;white-space:nowrap}
+.kic-oordeel{font:inherit;font-size:.82rem;font-weight:600;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;min-height:40px;border-radius:var(--r);border:1px solid var(--rand);background:var(--kaart);color:var(--ink);cursor:pointer;white-space:nowrap}
 .kic-oordeel .vlag{color:var(--uitsluiting)}
 .kic-oordeel[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
 .kic-oordeel:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .kic-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:16px;align-items:start}
 @media(max-width:760px){.kic-grid{grid-template-columns:1fr}}
-.kic .kaartvak-buiten{aspect-ratio:1;border:1px solid var(--rand);border-radius:2px;overflow:hidden}
+.kic .kaartvak-buiten{aspect-ratio:1;border:1px solid var(--rand);border-radius:var(--r);overflow:hidden}
 .kic-laag{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
 .kic-kavel{position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);pointer-events:none;z-index:2}
-.kic-kavel::before{content:"";position:absolute;inset:0;border:2px solid var(--accent);border-radius:4px;box-shadow:0 0 0 2px rgba(255,255,255,.9),0 1px 4px rgba(0,0,0,.3)}
+.kic-kavel::before{content:"";position:absolute;inset:0;border:2px solid var(--accent);border-radius:var(--r-klein);box-shadow:0 0 0 2px rgba(255,255,255,.9),0 1px 4px rgba(0,0,0,.3)}
 .kic-kavel::after{content:"";position:absolute;left:50%;top:50%;width:4px;height:4px;transform:translate(-50%,-50%);border-radius:50%;background:var(--accent);box-shadow:0 0 0 2px rgba(255,255,255,.9)}
 .kic-kavel span{position:absolute;left:50%;top:calc(100% + 6px);transform:translateX(-50%);font-size:.7rem;font-weight:600;white-space:nowrap;color:var(--ink);background:rgba(255,255,255,.9);padding:1px 6px;border-radius:999px;box-shadow:0 1px 3px rgba(0,0,0,.25)}
-.kic-hoeklegenda{position:absolute;left:8px;bottom:8px;display:flex;flex-direction:column;gap:3px;padding:5px 8px;background:rgba(255,255,255,.9);border-radius:4px;font-size:.72rem;color:var(--ink);max-width:60%;z-index:2}
+.kic-hoeklegenda{position:absolute;left:8px;bottom:8px;display:flex;flex-direction:column;gap:3px;padding:5px 8px;background:rgba(255,255,255,.9);border-radius:var(--r-klein);font-size:.72rem;color:var(--ink);max-width:60%;z-index:2}
 .kic-hoeklegenda .rij{display:flex;align-items:center;gap:5px}
-.kic-paneel{background:var(--kaart);border:1px solid var(--rand);border-radius:2px;padding:16px;display:flex;flex-direction:column;gap:14px}
+.kic-paneel{background:var(--kaart);border:1px solid var(--rand);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:14px}
 .kic-groep{border:none;border-top:1px solid var(--rand);margin:0;padding:10px 0 0;display:flex;flex-wrap:wrap;gap:6px 14px}
 .kic-groep:first-of-type{border-top:none;padding-top:0}
 .kic-groep legend{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-zacht);font-weight:700;padding:0;margin-bottom:5px;width:100%}
 .kic-toggle{display:inline-flex;align-items:center;gap:6px;font-size:.84rem;cursor:pointer}
 .kic-schuif{display:flex;align-items:center;gap:10px;font-size:.8rem;color:var(--ink-zacht);border-top:1px solid var(--rand);padding-top:12px}
 .kic-schuif input[type="range"]{flex:1}
-.kic-badge{display:flex;align-items:center;gap:10px;border:1px solid;border-left-width:4px;border-radius:2px;padding:12px 14px;background:var(--paper);margin-bottom:10px}
+.kic-badge{display:flex;align-items:center;gap:10px;border:1px solid;border-left-width:4px;border-radius:var(--r);padding:12px 14px;background:var(--paper);margin-bottom:10px}
 .kic-badge .dot{width:.9rem;height:.9rem}
 .kic-badge-tekst{display:flex;flex-direction:column}
 .kic-badge-tekst .eyebrow{margin-bottom:2px}
@@ -221,17 +221,17 @@ a.actie:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .kic-ladder-klasse{font-weight:600;font-size:.8rem}
 .kic-grens{font-size:.8rem;color:var(--ink-zacht);border-top:1px solid var(--rand);padding-top:12px;margin:0}
 .kic-leesregels{margin-top:16px;display:flex;flex-direction:column;gap:12px}
-.kic-geen-laag{font-size:.9rem;color:var(--ink-zacht);background:var(--uitsluiting-vlak);border-radius:2px;padding:12px 14px;margin:0}
-.kic-hint{font-size:.9rem;color:var(--ink-flauw);background:var(--grijs-vlak);border-radius:2px;padding:12px 14px;margin:0}
+.kic-geen-laag{font-size:.9rem;color:var(--ink-zacht);background:var(--uitsluiting-vlak);border-radius:var(--r);padding:12px 14px;margin:0}
+.kic-hint{font-size:.9rem;color:var(--ink-flauw);background:var(--grijs-vlak);border-radius:var(--r);padding:12px 14px;margin:0}
 .kic-leesregel{display:flex;gap:10px;align-items:flex-start}
 .kic-leesregel .dot{margin-top:6px}
 .kic-leesregel-kop{font-weight:600;font-size:.9rem;margin:0}
 .kic-leesregel-tekst{font-size:.88rem;margin:2px 0 0;color:var(--ink-zacht)}
 .kic-bron{font-size:.76rem;color:var(--ink-flauw);margin:2px 0 0}
-.kic-legendebeeld{max-width:90px;height:auto;margin-top:6px;background:#fff;border:1px solid var(--rand);border-radius:3px}
+.kic-legendebeeld{max-width:90px;height:auto;margin-top:6px;background:#fff;border:1px solid var(--rand);border-radius:var(--r-klein)}
 .kic-choropleth{border-top:1px solid var(--rand);padding-top:12px;margin-top:4px}
 .kic-choropleth .kic-grens{border-top:0;padding-top:0}
-.kic-choro-legenda{display:block;max-width:190px;height:auto;margin:8px 0 2px;background:#fff;border:1px solid var(--rand);border-radius:3px}
+.kic-choro-legenda{display:block;max-width:190px;height:auto;margin:8px 0 2px;background:#fff;border:1px solid var(--rand);border-radius:var(--r-klein)}
 @media print{body{background:#fff;color:#111}.knoppen,.kaartknoppen,.kop-downloads,.kic-oordelen,.kic-schuif{display:none}details .body{display:block!important}details summary::after{content:""}section{break-inside:avoid-page}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -257,7 +257,7 @@ header.site-kop{position:sticky;top:0;z-index:40;background:color-mix(in srgb,va
 .site-logo{text-decoration:none;color:var(--ink);line-height:1}
 .site-logo img{display:block;height:30px;width:auto}
 .site-logo-sub{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-zacht);display:block;margin-top:4px}
-.site-cta{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);text-decoration:none;border:1px solid var(--ink);padding:9px 16px;white-space:nowrap;transition:background .15s,color .15s}
+.site-cta{font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:.86rem;border-radius:999px;color:var(--ink);text-decoration:none;border:1px solid var(--ink);padding:9px 16px;white-space:nowrap;transition:background .15s,color .15s}
 .site-cta:hover{background:var(--ink);color:var(--paper)}
 @media(max-width:560px){.site-cta .cta-lang{display:none}}
 .demo-band{padding-top:48px;padding-bottom:34px}
@@ -267,20 +267,20 @@ header.site-kop{position:sticky;top:0;z-index:40;background:color-mix(in srgb,va
 .demo-band h1{font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05;letter-spacing:-.02em;margin:0 0 16px;text-wrap:balance}
 .demo-band h1 em{font-style:normal;color:var(--signaal)}
 .demo-band p{max-width:64ch;color:var(--ink-zacht);margin:0 0 12px}
-.demo-band ul{margin:14px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;border:1px solid var(--ink);background:#fff}
+.demo-band ul{border-radius:var(--r);overflow:hidden;margin:14px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;border:1px solid var(--ink);background:#fff}
 .demo-band li{padding:14px 16px;border-right:1px solid var(--rand);font-size:.9rem;color:var(--ink-zacht)}
 .demo-band li:last-child{border-right:none}
 .demo-band li b{display:block;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);font-weight:500;margin-bottom:4px}
 @media(max-width:700px){.demo-band li{border-right:none;border-bottom:1px solid var(--rand)}.demo-band li:last-child{border-bottom:none}}
 body>.wrap{padding-bottom:0}
 .demo-cta{margin-top:24px;border-top:1px solid var(--rand);padding-top:44px;padding-bottom:48px}
-.kies{border-radius:2px!important;font-family:'IBM Plex Sans',sans-serif}
+.kies{border-radius:999px!important;font-family:'IBM Plex Sans',sans-serif}
 .demo-cta h2{font-family:'Outfit',sans-serif;font-weight:700;font-size:clamp(1.5rem,3vw,2.1rem);margin:0 0 14px}
 .demo-cta p{max-width:62ch;color:var(--ink-zacht)}
-.site-knop{display:inline-block;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;background:var(--signaal);color:#fff;padding:14px 22px;border:1px solid var(--signaal);transition:transform .15s}
+.site-knop{display:inline-block;margin-top:14px;font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:.98rem;border-radius:999px;box-shadow:4px 4px 0 var(--ink);text-decoration:none;background:var(--signaal);color:#fff;padding:14px 22px;border:1px solid var(--signaal);transition:transform .15s}
 .site-knop:hover{transform:translateY(-1px)}
 footer.site-voet{border-top:2px solid var(--ink);padding:0 0 40px}
-.site-titelblok{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--ink);border-top:none;background:#fff}
+.site-titelblok{border-radius:0 0 var(--r) var(--r);overflow:hidden;display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--ink);border-top:none;background:#fff}
 .site-titelblok div{padding:14px 16px;border-right:1px solid var(--rand)}
 .site-titelblok div:last-child{border-right:none}
 .site-titelblok .tl{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-zacht);display:block;margin-bottom:4px}
@@ -292,7 +292,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--signaal);outline-of
 .vervolg{background:transparent!important;border:none!important;padding:0!important}
 .vervolg-in{grid-template-columns:1fr!important;gap:28px!important}
 .vervolg .toevoeg{padding-left:20px}
-.vervolg a.actie{border-radius:2px;background:var(--ink)}
+.vervolg a.actie{border-radius:999px;background:var(--ink)}
 aside.uitspraak{border:1px solid var(--ink)!important;background:#fff;padding:18px 20px!important;max-width:68ch;display:grid;grid-template-columns:1fr;gap:6px}
 aside.uitspraak p{margin:0}
 aside.uitspraak .ref-label{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-zacht)}
@@ -300,12 +300,26 @@ aside.uitspraak .ref-label{font-family:'IBM Plex Mono',monospace;font-size:.62re
 aside.uitspraak .bron-ref{font-family:'IBM Plex Mono',monospace;font-size:.78rem!important}
 aside.uitspraak .bron-ref a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--signaal)}
 aside.uitspraak .nuance{margin-top:8px}
+.demo-band h2{font-family:'Outfit',sans-serif;font-weight:700;font-size:clamp(1.35rem,2.6vw,1.75rem);letter-spacing:-.015em;margin:40px 0 12px}
+.demo-band .demo-why{margin:22px 0 4px;font-family:'Outfit',sans-serif;font-weight:700;font-size:1.12rem;color:var(--accent);max-width:58ch}
+.demo-inzet{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:6px}
+@media(max-width:760px){.demo-inzet{grid-template-columns:1fr}}
+.demo-inzet article{background:#fff;border:1px solid var(--rand);border-radius:var(--r);padding:20px 22px}
+.demo-inzet .label{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:6px}
+.demo-inzet h3{font-family:'Outfit',sans-serif;font-weight:700;font-size:1.12rem;margin:0 0 8px}
+.demo-inzet p{font-size:.94rem;margin:0 0 8px}
+.demo-inzet p:last-child{margin-bottom:0}
+.kleurlegenda{margin-top:28px!important}
+.demo-start{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;margin-top:30px}
+.demo-start .site-knop{margin-top:0}
+.demo-start span{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--ink-zacht)}
+.demo-band .demo-scheiding{max-width:none;margin:56px 0 0;display:flex;align-items:center;gap:14px;font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-zacht);margin:44px 0 0}
+.demo-scheiding::before,.demo-scheiding::after{content:"";height:1px;background:var(--rand-sterk);flex:1}
 @media print{.site-kader,header.site-kop,.demo-cta,footer.site-voet{display:none}}
 </style>
 
 </head>
 <body>
-<div class="site-kader" aria-hidden="true"><span></span></div>
 <header class="site-kop">
   <div class="site-wrap site-topbalk">
     <a class="site-logo" href="/"><img src="/logo/collegaai-woordmerk.svg" alt="collegaai" width="104" height="30"><span class="site-logo-sub">AI-implementatie voor het mkb</span></a>
@@ -315,13 +329,44 @@ aside.uitspraak .nuance{margin-top:8px}
 <div class="site-wrap demo-band">
   <p class="site-eyebrow">Demo &middot; ingenieursbureaus water, bodem en klimaatadaptatie</p>
   <h1>Waterquickscan per kavel, <em>in minuten</em></h1>
-  <p>Een voorbeeld van een virtuele collega voor een ingenieursbureau. Voor &eacute;&eacute;n adres haalt de scan open data op over hoogte, grondwater, neerslag, overstroming, bodemdaling en uitsluitingszones, en toetst die aan de Kamerbrief Water en Bodem sturend. Bij elk gegeven staan de bron, de schaal en het voorbehoud.</p>
-  <p>Het speurwerk in losse kaartviewers en portalen ligt er direct. De wateradviseur beoordeelt het resultaat en houdt het eindoordeel.</p>
+  <p>Een virtuele collega voor een ingenieursbureau. Voor &eacute;&eacute;n adres haalt de scan open data op over hoogte, grondwater, neerslag, overstroming, bodemdaling en uitsluitingszones, en toetst die aan de Kamerbrief Water en Bodem sturend. Bij elk gegeven staan de bron, de schaal en het voorbehoud. De wateradviseur beoordeelt het resultaat en houdt het eindoordeel.</p>
+
+  <h2>Waarom we dit bouwden</h2>
+  <p>Water en Bodem sturend vraagt dat water en bodem meewegen bij de vraag w&aacute;&aacute;r gebouwd wordt. Dat gesprek is het meest waard aan het begin van een plan, als er nog niets vastligt. Juist dan ontbreekt vaak de tijd voor uitzoekwerk: een adviseur klikt zich door tien kaartviewers en portalen voordat hij iets kan zeggen over &eacute;&eacute;n kavel.</p>
+  <p>Wie dat speurwerk automatiseert, maakt het vroege gesprek goedkoop genoeg om het bij elke kavel te voeren. Zo komt de kennis van de adviseur op het moment dat ze nog verschil maakt: een woonwijk die droog blijft bij een zware bui, een ontwikkelaar die op tijd hoort dat ophogen nodig is.</p>
+  <p class="demo-why">Wij geloven dat kennis pas af is als je het buiten terugziet.</p>
+
+  <h2>Twee manieren om dit in te zetten</h2>
+  <div class="demo-inzet">
+    <article>
+      <span class="label">Intern</span>
+      <h3>Repeterend werk sneller en gelijk</h3>
+      <p>Offertevragen, haalbaarheidschecks en de eerste stap van een watertoets beginnen telkens met dezelfde bronnen. De scan doet dat deel in minuten en elke keer op dezelfde manier, met bron en peildatum erbij.</p>
+      <p>De adviseur besteedt zijn uren aan duiden, rekenen en adviseren.</p>
+    </article>
+    <article>
+      <span class="label">Extern</span>
+      <h3>Lead magnet voor je adviespraktijk</h3>
+      <p>Zet de scan op je eigen site. Een ontwikkelaar, gemeente of particulier vult een adres in en krijgt direct een bruikbaar resultaat. Dat lost een klein probleem echt op en maakt tegelijk zichtbaar waar nader onderzoek nodig is.</p>
+      <p>Die vervolgvraag, watertoets of geohydrologisch onderzoek, komt bij jouw bureau terecht. Je geeft weg wat geautomatiseerd kan en verkoopt het vakwerk.</p>
+    </article>
+  </div>
+
+  <h2>Wat dit voorbeeld zegt over collegaai</h2>
+  <p>Het werkpatroon is het patroon van elk ingenieursbureau: informatie zit verspreid over losse systemen, pdf&rsquo;s en kaarten, en iemand moet het telkens bij elkaar zoeken. Dit voorbeeld laat zien hoe wij daarmee omgaan.</p>
   <ul>
-    <li><b>Bronnen</b>PDOK, BGT, AHN, BRO, Klimaateffectatlas en Bodemloket</li>
-    <li><b>Toetskader</b>Water en Bodem sturend, per structurerende keuze</li>
-    <li><b>Controle</b>Rekenregels in code, voorbehoud per meting, bronnen met peildatum</li>
+    <li><b>Eerst kijken wat weg kan</b>Welke stappen dragen bij aan het advies? Pas wat overblijft richten we in met AI.</li>
+    <li><b>Bron bij elk gegeven</b>PDOK, BGT, AHN, BRO, Klimaateffectatlas en Bodemloket in &eacute;&eacute;n overzicht, met peildatum en voorbehoud</li>
+    <li><b>Eindoordeel bij de vakman</b>Rekenregels in code en toetsing aan het beleidskader. De adviseur beslist.</li>
   </ul>
+  <p style="margin-top:18px">Hetzelfde kan voor jouw eigen repeterende werk, ook als dat over iets anders gaat dan water.</p>
+
+  <div class="demo-start">
+    <a class="site-knop" href="/#contact" data-goatcounter-click="demo-water-strategiesessie-boven">Plan een gratis strategiesessie</a>
+    <span>2 uur &middot; we brengen samen in kaart waar het uitzoekwerk zit</span>
+  </div>
+
+  <p class="demo-scheiding">De demo &middot; voorbeeldkavel Zutphen</p>
 </div>
 
 <div class="wrap">
@@ -641,7 +686,7 @@ na();
 </div>
 <div class="site-wrap demo-cta">
   <h2>Zo&rsquo;n scan voor jouw adviespraktijk?</h2>
-  <p>Deze demo laat zien hoe verspreide open data in &eacute;&eacute;n navolgbaar overzicht komt. Hetzelfde principe werkt voor watertoetsen, quickscans bij planvorming of de eerste fase van een klimaatstresstest. In een strategiesessie van twee uur brengen we samen in kaart waar bij jouw bureau het uitzoekwerk zit.</p>
+  <p>Voor intern gebruik bij repeterend werk of als lead magnet op je eigen site. In een strategiesessie van twee uur kijken we samen waar bij jouw bureau het uitzoekwerk zit en wat daarvan als eerste kan.</p>
   <a class="site-knop" href="/#contact" data-goatcounter-click="demo-water-strategiesessie">Plan een gratis strategiesessie</a>
 </div>
 <footer class="site-voet">
