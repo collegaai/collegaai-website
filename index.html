@@ -160,6 +160,12 @@ h2{
 .quote p{font-family:'Outfit',sans-serif;font-weight:700;font-size:1.15rem;line-height:1.35;color:var(--inkt);}
 .quote cite{display:block;margin-top:8px;font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--inkt-zacht);}
 .hero-garantie{margin-top:24px;max-width:58ch;font-size:1rem;}
+.hero .lead + .lead{margin-top:14px;}
+.hero-why{margin-top:22px;font-family:'Outfit',sans-serif;font-weight:700;font-size:1.08rem;color:var(--staalblauw);max-width:58ch;}
+.waarden .maatstaf-waarde{text-align:left;font-size:1rem;}
+.waarden .maatstaf-rij{flex-direction:column;align-items:flex-start;gap:4px;}
+.waarden .maatstaf-tekst{color:var(--inkt-zacht);font-size:.93rem;}
+.over-tekst .visie{font-family:'Outfit',sans-serif;font-weight:700;font-size:1.12rem;line-height:1.4;color:var(--inkt);}
 .tekstlink{color:var(--inkt);text-decoration:none;border-bottom:1px solid var(--oranje);}
 .rekenvoorbeeld{font-family:'IBM Plex Mono',monospace;font-size:.76rem;color:var(--inkt-zacht);}
 .hero-noot{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--inkt-zacht);margin-top:18px;}
@@ -401,9 +407,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
   <!-- HERO -->
   <div class="wrap hero">
     <p class="eyebrow">Blad 00 &middot; Mkb in de GWW: ingenieurs- en adviesbureaus en aannemers</p>
-    <h1>Vier uur per week terug <span class="accent">voor je team</span>.</h1>
-    <p class="lead">Een virtuele collega doet het uitzoekwerk in de GWW: vooronderzoek, onderbouwing en eerste concepten, in jullie eigen documenten. De ingenieur toetst en besluit.</p>
-    <p class="garantie hero-garantie">Haalt de werkscan geen 4 uur per week winst voor het team, dan betaal je de scan niet.</p>
+    <h1>Werk waar je buiten <span class="accent">trots op bent</span>.</h1>
+    <p class="lead">Hoeveel van je week gaat naar systemen, formulieren en zoeken naar informatie? En hoeveel naar het advies of ontwerp waar het om draait?</p>
+    <p class="lead">We bepalen samen met je team welke stappen bijdragen aan het resultaat. Wat overbodig is, gaat eruit. Wat overblijft, doet een virtuele collega sneller en grondiger, met de ingenieur die toetst en besluit.</p>
+    <p class="hero-why">Wij geloven dat kennis pas af is als je het buiten terugziet.</p>
     <div class="hero-acties">
       <a class="knop knop-primair" href="#contact" data-goatcounter-click="cta-hero-strategiesessie">Plan een gratis strategiesessie</a>
     </div>
@@ -488,7 +495,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
         <div class="kaart kaart--gratis reveal">
           <span class="kaart-fase">Stap 0 &middot; 2 uur</span>
           <h3>Strategiesessie</h3>
-          <p>We lopen je processen en grootste tijdvreter door. Je krijgt een eerlijk oordeel of AI daar iets oplevert, en waar je zou beginnen.</p>
+          <p>Met je team zetten we één kernproces op papier. Per stap bepalen we: draagt het bij, kan het weg of samen, en waar helpt AI. Je krijgt een eerlijk oordeel en drie kansen om mee te beginnen.</p>
           <p class="kaart-prijs">Gratis</p>
         </div>
         <div class="kaart reveal">
@@ -496,12 +503,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
           <h3>AI-werkscan</h3>
           <p>Eén team of werkstroom, bijvoorbeeld vooronderzoek of inschrijvingen.</p>
           <ul>
+            <li>Welke stappen kunnen weg of samen, voordat er iets wordt geautomatiseerd</li>
             <li>Kansenkaart, gerangschikt op inspanning en effect</li>
             <li>Check op AVG en EU AI-verordening</li>
           </ul>
           <p class="kaart-prijs">&euro; 3.500 excl. btw</p>
           <p class="garantie">Geen 4 uur per week winst voor het team? Dan betaal je de scan niet.</p>
           <p class="rekenvoorbeeld">4 uur per week is bij een uurtarief van &euro; 95 ruim &euro; 17.000 per jaar.</p>
+          <p class="rekenvoorbeeld">We doen maximaal twee scans per maand, zodat elke scan de aandacht krijgt die hij nodig heeft.</p>
         </div>
         <div class="kaart kaart--accent reveal">
           <span class="kaart-fase">Stap 2 &middot; vier tot zes weken</span>
@@ -534,6 +543,28 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
     </div>
   </section>
 
+  <!-- WAAROM WIJ -->
+  <section id="waarom">
+    <div class="wrap">
+      <div class="sectiekop reveal">
+        <h2>Waarom we dit doen</h2>
+        <span class="bladnr">BLAD 05 &middot; UITGANGSPUNT</span>
+      </div>
+      <div class="over-grid">
+        <div class="over-tekst reveal">
+          <p class="visie">Stel je een leefomgeving voor waar mensen elke dag veilig en vlot reizen, wonen en werken. Gemaakt door vakmensen die hun kennis besteden aan wat telt, en die buiten kunnen aanwijzen waar ze aan hebben bijgedragen.</p>
+          <p>Veel AI-trajecten maken het bestaande werk alleen sneller. Wij kijken eerst of elke stap nodig is. Dat is het verschil tussen <strong>digitaliseren</strong>: hetzelfde proces vlotter, en <strong>transformeren</strong>: het werk opnieuw inrichten rond wat het oplevert.</p>
+          <p>Daarvoor combineren we vier dingen: <strong>lean</strong> om te zien wat waarde heeft, <strong>verandermanagement</strong> zodat het team de nieuwe werkwijze zelf draagt, <strong>leiderschap bij digitale transformatie</strong> om het werk opnieuw in te richten, en <strong>praktijkervaring in beheer en planvorming in de GWW</strong>.</p>
+        </div>
+        <div class="maatstaf waarden reveal">
+          <div class="maatstaf-rij"><span class="maatstaf-label">Waarde 01</span><span class="maatstaf-waarde">Waarde buiten eerst</span><span class="maatstaf-tekst">Elke stap toetsen we aan wat hij oplevert voor bereikbaarheid, veiligheid of leefbaarheid.</span></div>
+          <div class="maatstaf-rij"><span class="maatstaf-label">Waarde 02</span><span class="maatstaf-waarde">Samen</span><span class="maatstaf-tekst">Je team ontwerpt mee, van directie tot werkvoorbereiding.</span></div>
+          <div class="maatstaf-rij"><span class="maatstaf-label">Waarde 03</span><span class="maatstaf-waarde">Betrouwbaar</span><span class="maatstaf-tekst">Eerst schrappen, dan automatiseren. Elke AI-uitkomst wordt gecontroleerd.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- VRAGEN -->
   <section id="vragen">
     <div class="wrap">
@@ -555,7 +586,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
   <!-- CONTACT -->
   <section class="cta" id="contact">
     <div class="wrap reveal">
-      <p class="eyebrow">Blad 05 &middot; Oplevering</p>
+      <p class="eyebrow">Blad 06 &middot; Oplevering</p>
       <h2>Waar gaan jullie uren heen?</h2>
       <p class="lead">Vul hieronder kort in wie jullie zijn en waar het knelt. We zetten er een mail van klaar die je zelf nog kunt aanpassen. Je krijgt binnen twee werkdagen een voorstel voor een gratis strategiesessie van twee uur.</p>
       <form class="mailform" id="mailform" novalidate>
