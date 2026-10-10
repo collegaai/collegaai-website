@@ -375,13 +375,24 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
 .borging-regel span::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--staalblauw);margin-right:8px;vertical-align:1px;}
 .status-af::before{content:"\25CF  ";}
 .status-bezig::before{content:"\25CB  ";}
+
+/* ---------- review 10-10-2026 ---------- */
+.borging li{color:#C6D0D8;}
+.verantw p{margin-bottom:12px;}
+.verantw ul{margin-bottom:12px;}
+.kpi{border-radius:var(--r);overflow:hidden;}
+.ingeklapt .na-max{display:none;}
+.meer-knop{margin-top:18px;cursor:pointer;background:transparent;font-size:.95rem;padding:11px 22px;}
+.tussen-cta{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;padding-top:36px;padding-bottom:36px;}
+.tussen-cta p{flex:1 1 420px;max-width:62ch;color:var(--inkt-zacht);}
+.tussen-cta strong{color:var(--inkt);}
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap topbalk">
-    <a class="logo" href="/"><img class="logo-woordmerk" src="/logo/collegaai-woordmerk.svg" alt="collegaai" width="104" height="30"><span class="logo-sub">AI-implementatie voor het mkb</span></a>
+    <a class="logo" href="/"><img class="logo-woordmerk" src="/logo/collegaai-woordmerk.svg" alt="collegaai" width="104" height="30"><span class="logo-sub">AI-implementatie voor de GWW</span></a>
     <a class="top-cta" href="/#contact" data-goatcounter-click="cta-header"><span class="cta-lang">Gratis </span>strategiesessie</a>
   </div>
 </header>
@@ -412,6 +423,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
       <ol class="concl"><li><div><h3>Er is geen gebrek aan pilots, wel aan doorzetten</h3><p>Van de 111 toepassingen zijn er 48 pilot, 33 in productie, 15 in onderzoek, 6 opgeschaald en 2 gestopt. Er gebeurt veel. Wat werkt, maakt alleen zelden de stap naar de rest van de sector.</p></div></li><li><div><h3>Beeldherkenning en voorspellend onderhoud domineren, taalmodellen nauwelijks</h3><p>33 toepassingen gebruiken computer vision, bijvoorbeeld voor scheuren, asfaltschade en spoorinspectie. Maar 4 van de 111 toepassingen gebruiken een taalmodel, en die zitten allemaal nog in pilot of onderzoek. Toepassingen op bestektekeningen, rekennota&#x27;s en inspectierapporten zijn het minst ontwikkeld.</p></div></li><li><div><h3>Wat ontbreekt is een gedeelde meetlat, geen techniek</h3><p>Er bestaan getrainde modellen en datasets voor schade aan kunstwerken, maar die zijn niet openbaar. Een open benchmark ontbreekt. CUR 117 en NEN 2767 regelen AI-inspectie niet. Zonder meetlat kan een beheerder niet aantonen dat een model goed genoeg is, en zonder normkader blijft het buiten de reguliere inspectie.</p></div></li><li><div><h3>Waarom pilots stoppen, houdt niemand bij</h3><p>Het enige goed gedocumenteerde Nederlandse geval, voorspellend wegonderhoud bij een provincie, stopte omdat de modelkwaliteit onvoldoende was: belangrijke schades bleken niet voorspelbaar. Eén geval is te weinig om op te sturen. Literatuur over organisatorische oorzaken gaat niet specifiek over infrabeheer.</p></div></li><li><div><h3>De best onderbouwde besparing komt uit een datastandaard, niet uit AI</h3><p>Het OTL-uitwisselbestand van de provincies leverde bij reguliere toestandsinspecties 50 tot 70% kostenreductie op. Geordende data is de voorwaarde voor elke AI-toepassing, en levert zonder AI al het meeste op.</p></div></li><li><div><h3>De gaten in de basisdata zijn specifiek</h3><p>Bij decentrale beheerders ontbreken vooral aanlegjaar, eigenaarschap en onderhoudshistorie van duikers, kademuren en damwanden. Beheerarchieven zijn vaak nog niet gedigitaliseerd. AI die zulke archieven ontsluit, is in Nederland niet gevonden.</p></div></li><li><div><h3>Inspectiedata delen is niet vanzelfsprekend</h3><p>De bereidheid tot kennisdeling is groot, maar er is geen voorbeeld van breed gedeelde inspectie- of schadedata. De Cyberbeveiligingswet en de Wet weerbaarheid kritieke entiteiten stellen extra eisen aan gegevens over vitale infrastructuur. Federatief leren, modellen trainen zonder data te delen, is in de Nederlandse infra niet gevonden.</p></div></li><li><div><h3>Vernieuwing in de GWW liep via georganiseerde vraag</h3><p>ZOAB en hergebruik van liggers werden sectorbreed via gezamenlijke trajecten en inkoopcombinaties, niet doordat één koploper het voordeed. Koplopers zijn er wel: ProRail, Rijkswaterstaat, Amsterdam en Rotterdam. Collectieve programma&#x27;s voor kleinere beheerders lopen ook al, zoals CROW Essit en TITAAN van de waterschappen.</p></div></li><li><div><h3>Het buitenland heeft wat Nederland mist: een gedeelde databasis</h3><p>De VS (LTBP/InfoBridge voor bruggen) en Zweden (NVDB voor wegen) hebben blijvende, publiek beheerde databases waar ook lokale beheerders aan leveren en uit putten. Het Verenigd Koninkrijk financierde beheerder-geleide Live Labs met onafhankelijke evaluatie. Voor kunstwerken heeft Nederland zo&#x27;n voorziening niet.</p></div></li><li><div><h3>Het bekende adoptiecijfer gaat niet over beheerders</h3><p>Het CBS meet dat 7 tot 9% van de bouwbedrijven AI gebruikt, tegen 17 tot 23% van alle bedrijven. Dat gaat over aannemers en installateurs. Over AI-gebruik bij infrabeheerders zelf bestaan geen cijfers.</p></div></li></ol>
     </div>
   </section>
+
+  <div class="wrap tussen-cta">
+    <p><strong>Wil je weten welke van deze toepassingen in jouw werk past?</strong> In een gratis strategiesessie van twee uur leggen we het naast een kernproces van jouw team.</p>
+    <a class="knop knop-primair" href="/#contact" data-goatcounter-click="pilotscan-tussen-strategiesessie">Plan een gratis strategiesessie</a>
+  </div>
 
   <section id="verdeling">
     <div class="wrap">
@@ -514,6 +530,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
       document.getElementById(teller).textContent=n+' van '+rows.length+' '+label;
     }
     els.forEach(function(x){x.addEventListener('input',run);});
+    // ingeklapt tonen tot de lezer filtert of alles opent
+    var lijst=rows.length?rows[0].parentNode:null, max=rowsSel.indexOf('b-')>-1?20:12;
+    if(lijst&&rows.length>max){
+      var btn=document.createElement('button');btn.type='button';btn.className='knop knop-secundair meer-knop';
+      btn.textContent='Toon alle '+rows.length+' '+label;
+      var host=lijst.closest('table')||lijst; host.insertAdjacentElement('afterend',btn);
+      host.classList.add('ingeklapt');host.style.setProperty('--max',max);
+      rows.forEach(function(r,i){if(i>=max)r.classList.add('na-max');});
+      function open(){host.classList.remove('ingeklapt');btn.remove();}
+      btn.addEventListener('click',function(){open();btn.blur();});
+      els.forEach(function(x){x.addEventListener('input',function(){if(x.value)open();});});
+    }
   }
   filter(['p-zoek','p-status','p-assettype','p-techniek'],'#p-rijen tr','p-teller','toepassingen',function(r,v){
     return (!v[0]||r.dataset.zoek.indexOf(v[0])>-1)&&(!v[1]||r.dataset.status.toLowerCase()===v[1])&&(!v[2]||r.dataset.assettype.toLowerCase()===v[2])&&(!v[3]||r.dataset.techniek.toLowerCase()===v[3]);

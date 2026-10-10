@@ -396,6 +396,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
 .borging-regel span::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--staalblauw);margin-right:8px;vertical-align:1px;}
 .status-af::before{content:"\25CF  ";}
 .status-bezig::before{content:"\25CB  ";}
+
+/* ---------- review 10-10-2026 ---------- */
+.hero-noot{font-family:'IBM Plex Sans',sans-serif;font-size:.92rem;color:var(--inkt-zacht);}
+.hero-noot .tekstlink{font-weight:600;color:var(--inkt);}
+.titelblok{border-top:1px solid var(--inkt);border-radius:var(--r);}
+.kaart-actie{margin-top:16px;}
+.kaart-actie .knop{font-size:.92rem;padding:11px 20px;}
 </style>
 </head>
 <body>
@@ -443,8 +450,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
           <span class="kaart-start">Begin hier</span>
           <span class="kaart-fase">Stap 0 &middot; 2 uur</span>
           <h3>Strategiesessie</h3>
-          <p>Met je team zetten we één kernproces op papier. Per stap bepalen we: draagt het bij, kan het weg of samen, en waar helpt AI. Je krijgt een eerlijk oordeel en drie kansen om mee te beginnen.</p>
+          <p>Met je team zetten we één kernproces op papier, stap voor stap.</p>
+          <ul>
+            <li>Per stap: draagt het bij, kan het weg of samen?</li>
+            <li>Waar helpt AI, en waar niet</li>
+            <li>Een eerlijk oordeel en drie kansen om mee te beginnen</li>
+          </ul>
           <p class="kaart-prijs">Gratis</p>
+          <p class="kaart-actie"><a class="knop knop-primair" href="#contact" data-goatcounter-click="aanbod-strategiesessie">Plan de strategiesessie</a></p>
         </div>
         <div class="kaart reveal">
           <span class="kaart-fase">Stap 1 &middot; halve dag</span>
@@ -663,7 +676,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
     <p class="footer-over">collegaai komt uit de praktijk van beheer en planvorming in de GWW. We gebruiken het gereedschap zelf, voordat we het bij jou inrichten.</p>
     <div class="titelblok">
       <div class="titelblok-cel"><span class="tl">Contact</span><span class="tw"><a href="mailto:info@collegaai.nl">info@collegaai.nl</a></span></div>
-      <div class="titelblok-cel"><span class="tl">Referentie</span><span class="tw"><a href="/pilotscan.html">Pilotscan AI in infrabeheer</a></span></div>
+      <div class="titelblok-cel"><span class="tl">Referentie</span><span class="tw"><a href="/pilotscan.html">Pilotscan AI in infrabeheer</a><br><a href="/demo-waterquickscan.html">Demo waterquickscan</a></span></div>
       <div class="titelblok-cel"><span class="tl">Privacy</span><span class="tw"><a href="/privacy.html">Privacyverklaring</a></span></div>
     </div>
     <div class="footer-noot">
