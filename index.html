@@ -163,6 +163,8 @@ h2{
 .quote cite{display:block;margin-top:8px;font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--inkt-zacht);}
 .hero-garantie{margin-top:24px;max-width:58ch;font-size:1rem;}
 .hero .lead + .lead{margin-top:14px;}
+.hero-uitkomst{margin-top:18px;font-family:'Outfit',sans-serif;font-weight:700;font-size:clamp(1.1rem,2vw,1.35rem);color:var(--oranje);}
+.kaart-start{position:absolute;top:14px;right:14px;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;background:var(--inkt);color:var(--papier);padding:4px 10px;border-radius:999px;}
 .hero-why{margin-top:22px;font-family:'Outfit',sans-serif;font-weight:700;font-size:1.08rem;color:var(--staalblauw);max-width:58ch;}
 .waarden .maatstaf-waarde{text-align:left;font-size:1rem;}
 .waarden .maatstaf-rij{flex-direction:column;align-items:flex-start;gap:4px;}
@@ -292,6 +294,7 @@ footer{border-top:2px solid var(--inkt);padding:0 0 40px;}
 .bewijs-voet .pijl{color:var(--inkt);font-weight:500;}
 .uitklap{margin-top:28px;border-top:1px solid var(--lijn-licht);}
 .uitklap summary{font-size:.95rem;}
+.post-sub{font-family:'Outfit',sans-serif;font-weight:700;font-size:1.05rem;margin:18px 0 10px;}
 .uitklap .tabel-scroll{padding-bottom:18px;}
 .revtabel a{color:var(--inkt);border-bottom:1px solid var(--oranje);text-decoration:none;}
 .borging-regel{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:24px;font-family:'IBM Plex Mono',monospace;font-size:.76rem;color:var(--inkt-zacht);}
@@ -410,6 +413,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
   <div class="wrap hero">
     <p class="eyebrow">Blad 00 &middot; Mkb in de GWW: ingenieurs- en adviesbureaus en aannemers</p>
     <h1>Werk waar je buiten <span class="accent">trots op bent</span>.</h1>
+    <p class="hero-uitkomst">Ons doel per team: 4 uur per week terug voor het werk dat telt.</p>
     <p class="lead">Hoeveel van je week gaat naar systemen, formulieren en zoeken naar informatie? En hoeveel naar het advies of ontwerp waar het om draait?</p>
     <p class="lead">We bepalen samen met je team welke stappen bijdragen aan het resultaat. Wat overbodig is, gaat eruit. Wat overblijft, doet een virtuele collega sneller en grondiger, met de ingenieur die toetst en besluit.</p>
     <p class="hero-why">Wij geloven dat kennis pas af is als je het buiten terugziet.</p>
@@ -424,77 +428,17 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
     </ul>
   </div>
 
-  <!-- BEWIJS -->
-  <section id="pilotscan">
-    <div class="wrap">
-      <div class="sectiekop reveal">
-        <h2>Wat AI in de GWW al doet</h2>
-        <span class="bladnr">BLAD 01 &middot; REFERENTIE</span>
-      </div>
-      <p class="rev-intro reveal">We brachten AI-, data- en sensortoepassingen bij beheerders van wegen, vaarwegen, kunstwerken en waterkeringen in kaart. Per toepassing de status, het resultaat en het knelpunt, met de bron erbij.</p>
-      <a class="bewijs reveal" href="/pilotscan.html" data-goatcounter-click="bewijs-pilotscan">
-        <span class="bewijs-cel"><span class="bewijs-getal">111</span><span class="bewijs-label">toepassingen</span></span>
-        <span class="bewijs-cel"><span class="bewijs-getal">566</span><span class="bewijs-label">gecontroleerde bronnen</span></span>
-        <span class="bewijs-cel"><span class="bewijs-getal">10</span><span class="bewijs-label">conclusies</span></span>
-        <span class="bewijs-voet">Peildatum oktober 2026 &middot; openbaar en te downloaden <span class="pijl">Open de pilotscan &rarr;</span></span>
-      </a>
-      <blockquote class="quote reveal"><p>&ldquo;Dit zou je als afstudeeronderzoek maanden hebben gekost.&rdquo;</p><cite>Marco, AI-specialist</cite></blockquote>
-    </div>
-  </section>
-
-  <!-- WERKWIJZE -->
-  <section id="werkwijze">
-    <div class="wrap">
-      <div class="sectiekop reveal">
-        <h2>Snel uitgezocht, en je kunt het narekenen</h2>
-        <span class="bladnr">BLAD 02 &middot; WERKWIJZE</span>
-      </div>
-      <p class="rev-intro reveal">Snelheid heeft weinig waarde als je elke zin zelf moet natrekken. Daarom werkt de virtuele collega in vaste stappen, met een controle na elke stap. Zo is ook de pilotscan gemaakt.</p>
-      <div class="posten reveal">
-        <div class="post"><span class="post-nr">01</span><div><h3>Eerst de vraag scherp</h3><p>De collega stelt kritische vragen tot de opdracht eenduidig is: afbakening, bronnen, wat je wel en niet wilt weten. Dat kost jou een kwartier, en daarna hoeft er niets over.</p></div></div>
-        <div class="post"><span class="post-nr">02</span><div><h3>Opdracht op papier</h3><p>De antwoorden worden een korte specificatie. Die is de meetlat voor het eindresultaat, zodat je achteraf ziet of geleverd is wat gevraagd was.</p></div></div>
-        <div class="post"><span class="post-nr">03</span><div><h3>Losse werkpakketten</h3><p>Het werk wordt opgeknipt. Elk pakket krijgt een eigen AI-agent met een schone start, zodat een fout in het ene onderdeel niet doorwerkt in het volgende.</p></div></div>
-        <div class="post"><span class="post-nr">04</span><div><h3>Onafhankelijke controle</h3><p>Een AI-model van een andere leverancier toetst het resultaat in meerdere rondes. Elke bewering moet terug te voeren zijn op een bron. Wat dat niet is, gaat eruit of krijgt een markering.</p></div></div>
-        <div class="post"><span class="post-nr">05</span><div><h3>Eindoordeel bij de vakman</h3><p>Een ingenieur of assetmanager leest het eindresultaat en beslist. Hij kent de praktijk en ziet wat een model mist, zoals een verouderde norm of een lokale uitzondering.</p></div></div>
-      </div>
-      <div class="bewijs bewijs--stil reveal" style="margin-top:36px">
-        <span class="bewijs-cel"><span class="bewijs-getal">&frac12; dag</span><span class="bewijs-label">doorlooptijd van het bureauonderzoek voor de pilotscan</span></span>
-        <span class="bewijs-cel"><span class="bewijs-getal">566</span><span class="bewijs-label">bronnen nagelopen op bereikbaarheid en citaat</span></span>
-        <span class="bewijs-cel"><span class="bewijs-getal">0</span><span class="bewijs-label">onjuiste stellingen bij een steekproef van 40 tegen de primaire bron</span></span>
-        <span class="bewijs-voet">Toelichting en beperkingen: <a href="/pilotscan.html#verantwoording">Hoe betrouwbaar is de pilotscan</a></span>
-      </div>
-      <p class="posten-slot reveal">Voor jou betekent dit: jij levert de vraag en het eindoordeel. Het uitzoekwerk ligt er sneller, met een bronnenlijst die je collega of opdrachtgever zelf kan controleren.</p>
-    </div>
-  </section>
-
-  <!-- ONTSNIPPEREN -->
-  <section id="overzicht">
-    <div class="wrap">
-      <div class="sectiekop reveal">
-        <h2>Eén overzicht uit al je losse systemen</h2>
-        <span class="bladnr">BLAD 03 &middot; INFORMATIE</span>
-      </div>
-      <p class="rev-intro reveal">Offertes en meerwerk in losse Excels, opleverdossiers als pdf in mappen, planning en uren in aparte apps. Elke keer zoekt iemand het opnieuw bij elkaar. De virtuele collega brengt die bronnen samen in één overzicht, en laat zien dat er onderweg niets is verzonnen of kwijtgeraakt.</p>
-      <div class="posten reveal">
-        <div class="post"><span class="post-nr">01</span><div><h3>Elk gegeven met bronverwijzing</h3><p>Wat uit een pdf, Excel of mail wordt overgenomen, krijgt bestand, pagina of cel mee. Je kunt altijd terug naar waar het vandaan komt.</p></div></div>
-        <div class="post"><span class="post-nr">02</span><div><h3>Harde controles zonder AI</h3><p>Aantallen per bron tegen het resultaat, dubbelingen, ontbrekende koppelingen en onmogelijke waarden worden in gewone code gecontroleerd. Die stap kan niet hallucineren.</p></div></div>
-        <div class="post"><span class="post-nr">03</span><div><h3>Verschillen worden gemeld, niet weggepoetst</h3><p>Staat een project of object in twee bronnen met verschillende waarden, dan zie je ze allebei. Jij kiest welke klopt.</p></div></div>
-        <div class="post"><span class="post-nr">04</span><div><h3>Steekproef door een vakman</h3><p>Twijfelgevallen gaan naar een mens. Daarnaast wordt een vaste steekproef gecontroleerd van wat automatisch doorging.</p></div></div>
-        <div class="post"><span class="post-nr">05</span><div><h3>Verificatierapport</h3><p>Per bron staat vast wat is overgenomen, wat is afgekeurd en wat handmatig is besloten, en door wie. Bruikbaar richting opdrachtgever of auditor.</p></div></div>
-      </div>
-      <p class="posten-slot reveal">Het overzicht blijft daarna bij als de bronnen veranderen. Een eenmalige opschoning is over een jaar weer verouderd.</p>
-    </div>
-  </section>
-
   <!-- AANBOD -->
   <section id="werkscan">
     <div class="wrap">
       <div class="sectiekop reveal">
         <h2>Klein beginnen, daarna verder bouwen</h2>
-        <span class="bladnr">BLAD 04 &middot; SCOPE</span>
+        <span class="bladnr">BLAD 01 &middot; AANBOD</span>
       </div>
+      <p class="rev-intro reveal">Begin met een gratis strategiesessie. Wil je direct resultaat, dan heb je met een Quickwin-sessie binnen twee weken drie toepassingen in gebruik.</p>
       <div class="aanbod-grid">
         <div class="kaart kaart--gratis reveal">
+          <span class="kaart-start">Begin hier</span>
           <span class="kaart-fase">Stap 0 &middot; 2 uur</span>
           <h3>Strategiesessie</h3>
           <p>Met je team zetten we één kernproces op papier. Per stap bepalen we: draagt het bij, kan het weg of samen, en waar helpt AI. Je krijgt een eerlijk oordeel en drie kansen om mee te beginnen.</p>
@@ -560,12 +504,71 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
     </div>
   </section>
 
+  <!-- BEWIJS -->
+  <section id="pilotscan">
+    <div class="wrap">
+      <div class="sectiekop reveal">
+        <h2>Wat AI in de GWW al doet</h2>
+        <span class="bladnr">BLAD 02 &middot; REFERENTIE</span>
+      </div>
+      <p class="rev-intro reveal">We brachten AI-, data- en sensortoepassingen bij beheerders van wegen, vaarwegen, kunstwerken en waterkeringen in kaart. Per toepassing de status, het resultaat en het knelpunt, met de bron erbij.</p>
+      <a class="bewijs reveal" href="/pilotscan.html" data-goatcounter-click="bewijs-pilotscan">
+        <span class="bewijs-cel"><span class="bewijs-getal">111</span><span class="bewijs-label">toepassingen</span></span>
+        <span class="bewijs-cel"><span class="bewijs-getal">566</span><span class="bewijs-label">gecontroleerde bronnen</span></span>
+        <span class="bewijs-cel"><span class="bewijs-getal">10</span><span class="bewijs-label">conclusies</span></span>
+        <span class="bewijs-voet">Peildatum oktober 2026 &middot; openbaar en te downloaden <span class="pijl">Open de pilotscan &rarr;</span></span>
+      </a>
+      <blockquote class="quote reveal"><p>&ldquo;Dit zou je als afstudeeronderzoek maanden hebben gekost.&rdquo;</p><cite>Marco, AI-specialist</cite></blockquote>
+    </div>
+  </section>
+
+  <!-- WERKWIJZE -->
+  <section id="werkwijze">
+    <div class="wrap">
+      <div class="sectiekop reveal">
+        <h2>Zo werken we</h2>
+        <span class="bladnr">BLAD 03 &middot; WERKWIJZE</span>
+      </div>
+      <div class="posten reveal">
+        <div class="post"><span class="post-nr">01</span><div><h3>Eerst kijken wat weg kan</h3><p>We bepalen samen welke stappen bijdragen. Pas wat overblijft, richten we in met AI.</p></div></div>
+        <div class="post"><span class="post-nr">02</span><div><h3>Bron bij elk gegeven</h3><p>Uit losse systemen, pdf's en Excels samengebracht in één overzicht, met verwijzing naar waar het vandaan komt.</p></div></div>
+        <div class="post"><span class="post-nr">03</span><div><h3>Onafhankelijke controle</h3><p>Een AI-model van een andere leverancier en harde controles in code toetsen het resultaat.</p></div></div>
+        <div class="post"><span class="post-nr">04</span><div><h3>Eindoordeel bij de vakman</h3><p>Jij levert de vraag en het eindoordeel. Het uitzoekwerk ligt er sneller.</p></div></div>
+      </div>
+      <div class="bewijs bewijs--stil reveal" style="margin-top:36px">
+        <span class="bewijs-cel"><span class="bewijs-getal">&frac12; dag</span><span class="bewijs-label">doorlooptijd van het bureauonderzoek voor de pilotscan</span></span>
+        <span class="bewijs-cel"><span class="bewijs-getal">566</span><span class="bewijs-label">bronnen nagelopen op bereikbaarheid en citaat</span></span>
+        <span class="bewijs-cel"><span class="bewijs-getal">0</span><span class="bewijs-label">onjuiste stellingen bij een steekproef van 40 tegen de primaire bron</span></span>
+        <span class="bewijs-voet">Toelichting en beperkingen: <a href="/pilotscan.html#verantwoording">Hoe betrouwbaar is de pilotscan</a></span>
+      </div>
+      <details class="vraag uitklap reveal"><summary>Alle stappen in detail</summary>
+        <h3 class="post-sub">Uitzoekwerk</h3>
+        <div class="posten">
+        <div class="post"><span class="post-nr">01</span><div><h3>Eerst de vraag scherp</h3><p>De collega stelt kritische vragen tot de opdracht eenduidig is: afbakening, bronnen, wat je wel en niet wilt weten. Dat kost jou een kwartier, en daarna hoeft er niets over.</p></div></div>
+        <div class="post"><span class="post-nr">02</span><div><h3>Opdracht op papier</h3><p>De antwoorden worden een korte specificatie. Die is de meetlat voor het eindresultaat, zodat je achteraf ziet of geleverd is wat gevraagd was.</p></div></div>
+        <div class="post"><span class="post-nr">03</span><div><h3>Losse werkpakketten</h3><p>Het werk wordt opgeknipt. Elk pakket krijgt een eigen AI-agent met een schone start, zodat een fout in het ene onderdeel niet doorwerkt in het volgende.</p></div></div>
+        <div class="post"><span class="post-nr">04</span><div><h3>Onafhankelijke controle</h3><p>Een AI-model van een andere leverancier toetst het resultaat in meerdere rondes. Elke bewering moet terug te voeren zijn op een bron. Wat dat niet is, gaat eruit of krijgt een markering.</p></div></div>
+        <div class="post"><span class="post-nr">05</span><div><h3>Eindoordeel bij de vakman</h3><p>Een ingenieur of assetmanager leest het eindresultaat en beslist. Hij kent de praktijk en ziet wat een model mist, zoals een verouderde norm of een lokale uitzondering.</p></div></div>
+      </div>
+        <h3 class="post-sub">Eén overzicht uit losse systemen</h3>
+        <p class="rev-intro">Offertes en meerwerk in losse Excels, opleverdossiers als pdf in mappen, planning en uren in aparte apps. Elke keer zoekt iemand het opnieuw bij elkaar. De virtuele collega brengt die bronnen samen in één overzicht, en laat zien dat er onderweg niets is verzonnen of kwijtgeraakt.</p>
+        <div class="posten">
+        <div class="post"><span class="post-nr">01</span><div><h3>Elk gegeven met bronverwijzing</h3><p>Wat uit een pdf, Excel of mail wordt overgenomen, krijgt bestand, pagina of cel mee. Je kunt altijd terug naar waar het vandaan komt.</p></div></div>
+        <div class="post"><span class="post-nr">02</span><div><h3>Harde controles zonder AI</h3><p>Aantallen per bron tegen het resultaat, dubbelingen, ontbrekende koppelingen en onmogelijke waarden worden in gewone code gecontroleerd. Die stap kan niet hallucineren.</p></div></div>
+        <div class="post"><span class="post-nr">03</span><div><h3>Verschillen worden gemeld, niet weggepoetst</h3><p>Staat een project of object in twee bronnen met verschillende waarden, dan zie je ze allebei. Jij kiest welke klopt.</p></div></div>
+        <div class="post"><span class="post-nr">04</span><div><h3>Steekproef door een vakman</h3><p>Twijfelgevallen gaan naar een mens. Daarnaast wordt een vaste steekproef gecontroleerd van wat automatisch doorging.</p></div></div>
+        <div class="post"><span class="post-nr">05</span><div><h3>Verificatierapport</h3><p>Per bron staat vast wat is overgenomen, wat is afgekeurd en wat handmatig is besloten, en door wie. Bruikbaar richting opdrachtgever of auditor.</p></div></div>
+      </div>
+      </details>
+    </div>
+  </section>
+
   <!-- WAAROM WIJ -->
   <section id="waarom">
     <div class="wrap">
       <div class="sectiekop reveal">
         <h2>Waarom we dit doen</h2>
-        <span class="bladnr">BLAD 05 &middot; UITGANGSPUNT</span>
+        <span class="bladnr">BLAD 04 &middot; UITGANGSPUNT</span>
       </div>
       <div class="over-grid">
         <div class="over-tekst reveal">
@@ -605,7 +608,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oranje);outline-off
   <!-- CONTACT -->
   <section class="cta" id="contact">
     <div class="wrap reveal">
-      <p class="eyebrow">Blad 06 &middot; Oplevering</p>
+      <p class="eyebrow">Blad 05 &middot; Oplevering</p>
       <h2>Waar gaan jullie uren heen?</h2>
       <p class="lead">Vul hieronder kort in wie jullie zijn en waar het knelt. We zetten er een mail van klaar die je zelf nog kunt aanpassen. Je krijgt binnen twee werkdagen een voorstel voor een gratis strategiesessie van twee uur.</p>
       <form class="mailform" id="mailform" novalidate>
