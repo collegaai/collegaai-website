@@ -151,6 +151,14 @@ footer a{color:var(--oranje);}
       <div class="veld"><label for="gebruik"><span>Aanvragen die een persoonlijke link krijgen</span><button type="button" class="chip" data-bron="b-gb" aria-expanded="false">Aanname</button></label>
         <div class="inv"><input type="range" id="gebruik" min="10" max="100" step="5" value="60" data-unit="%" aria-describedby="v-gebruik"><output class="uit" id="v-gebruik" for="gebruik"></output></div>
         <p class="bron" id="b-gb">Bepaalt hoeveel links je per maand aanmaakt, en dus wat je betaalt bij een tarief per link. Laag houden is een goede manier om kosten te beheersen.</p></div>
+
+      <div class="veld"><label for="mkt"><span>Marketing- en verkoopkosten per maand</span><button type="button" class="chip" data-bron="b-mkt" aria-expanded="false">Jouw invoer</button></label>
+        <div class="inv"><input type="range" id="mkt" min="0" max="20000" step="250" value="3000" data-unit="€" aria-describedby="v-mkt"><output class="uit" id="v-mkt" for="mkt"></output></div>
+        <p class="bron" id="b-mkt">Alles wat je uitgeeft om aanvragen binnen te halen en af te ronden: advertenties, website, beurzen, tijd van je verkopers. Hiermee rekenen we je kosten per nieuwe klant (CAC) uit. Startwaarde is een aanname.</p></div>
+
+      <div class="veld"><label for="vervolg"><span>Klanten die later bijkopen of doorverwijzen</span><button type="button" class="chip" data-bron="b-vv" aria-expanded="false">Aanname</button></label>
+        <div class="inv"><input type="range" id="vervolg" min="0" max="50" step="5" value="10" data-unit="%" aria-describedby="v-vervolg"><output class="uit" id="v-vervolg" for="vervolg"></output></div>
+        <p class="bron" id="b-vv">Een tuinhuis koopt een klant meestal eenmalig. Het vervolg zit in uitbreidingen, een tweede huis of een doorverwijzing. We tellen dat als een extra opdracht met dezelfde marge. Startwaarde is een aanname, vul je werkelijke cijfer in.</p></div>
     </form>
 
     <div class="paneel" aria-labelledby="h-effect">
@@ -187,7 +195,7 @@ footer a{color:var(--oranje);}
       <label class="opt"><input type="radio" name="model" value="hybride"> <b>Groei: lagere prijs per link plus commissie op extra&rsquo;s</b><small>Je betaalt minder per link en een percentage van de extra optieomzet die de tool oplevert, bovenop wat je nu al verkoopt.</small>
         <span class="veld" style="margin:10px 0 0"><span class="lab"><span>Bedrag per link</span></span><span class="inv"><input type="range" id="tLinkH" min="0" max="50" step="1" value="6" data-unit="€" aria-describedby="v-tLinkH"><output class="uit" id="v-tLinkH" for="tLinkH"></output></span></span>
         <span class="veld" style="margin:6px 0 0"><span class="lab"><span>Commissie op extra optieomzet</span></span><span class="inv"><input type="range" id="tComm" min="0" max="30" step="1" value="10" data-unit="%" aria-describedby="v-tComm"><output class="uit" id="v-tComm" for="tComm"></output></span></span></label>
-      <label class="opt"><input type="radio" name="model" value="partner"> <b>Partner: alleen betalen bij resultaat</b><small>Geen bedrag per link. Je betaalt een percentage van de extra brutomarge, pas boven een drempel. Levert de tool niets op, dan betaal je niets.</small>
+      <label class="opt"><input type="radio" name="model" value="partner"> <b>Partner: alleen betalen bij resultaat</b><small>Geen bedrag per link. Je betaalt een percentage van de extra brutomarge, pas boven een drempel. Levert de tool niets op, dan betaal je niets. De fee telt mee in je CAC: je ziet rechts direct of je kosten per klant dalen en je LTV:CAC stijgt.</small>
         <span class="veld" style="margin:10px 0 0"><span class="lab"><span>Aandeel van extra marge</span></span><span class="inv"><input type="range" id="tPart" min="0" max="40" step="1" value="20" data-unit="%" aria-describedby="v-tPart"><output class="uit" id="v-tPart" for="tPart"></output></span></span>
         <span class="veld" style="margin:6px 0 0"><span class="lab"><span>Drempel: eerste extra marge per jaar is voor jou</span></span><span class="inv"><input type="range" id="tDrempel" min="0" max="30000" step="1000" value="5000" data-unit="€" aria-describedby="v-tDrempel"><output class="uit" id="v-tDrempel" for="tDrempel"></output></span></span></label>
     </div>
@@ -209,6 +217,9 @@ footer a{color:var(--oranje);}
           <tr><td>Verkochte tuinhuizen</td><td id="t-o0"></td><td id="t-o1"></td></tr>
           <tr><td>Extra&rsquo;s per jaar (omzet)</td><td id="t-e0"></td><td id="t-e1"></td></tr>
           <tr><td>Brutomarge per jaar</td><td id="t-m0"></td><td id="t-m1"></td></tr>
+          <tr><td>CAC (kosten per nieuwe klant)</td><td id="t-c0"></td><td id="t-c1"></td></tr>
+          <tr><td>LTV (marge per klant)</td><td id="t-v0"></td><td id="t-v1"></td></tr>
+          <tr><td>LTV : CAC</td><td id="t-q0"></td><td id="t-q1"></td></tr>
         </tbody>
       </table>
       <div class="punt"><b>Extra marge</b><span id="r-extra"></span></div>
@@ -300,7 +311,7 @@ function invoer(){
     extraAandeel:num('extraAandeel')/100,extraWaarde:num('extraWaarde'),extraMarge:num('extraMarge')/100,gebruik:num('gebruik')/100,
     xLeads:num('xLeads')/100,xTeken:num('xTeken')/100,xExtra:num('xExtra')/100,
     model:document.querySelector('input[name=model]:checked').value,
-    tLink:num('tLink'),tLinkH:num('tLinkH'),tComm:num('tComm')/100,tPart:num('tPart')/100,tDrempel:num('tDrempel')
+    mkt:num('mkt'),vervolg:num('vervolg')/100,tLink:num('tLink'),tLinkH:num('tLinkH'),tComm:num('tComm')/100,tPart:num('tPart')/100,tDrempel:num('tDrempel')
   };
 }
 
@@ -320,7 +331,11 @@ function bereken(i,s){
   var extraOmzet=Math.max(0,e1-e0);
   var extra=m1-m0;
   var kosten = i.model==='link' ? links*i.tLink : i.model==='hybride' ? links*i.tLinkH + i.tComm*extraOmzet : i.tPart*Math.max(0,extra-i.tDrempel);
-  return {l0:l0,l1:l1,o0:o0,o1:o1,e0:e0,e1:e1,m0:m0,m1:m1,links:links,extra:extra,kosten:kosten,netto:extra-kosten};
+  var mk=12*i.mkt, a0=i.extraAandeel;
+  var basis=i.prijs*i.marge*(1+i.vervolg);
+  var ltv0=basis+a0*i.extraWaarde*i.extraMarge, ltv1=basis+a1*i.extraWaarde*i.extraMarge;
+  var cac0=o0>0?mk/o0:0, cac1=o1>0?(mk+kosten)/o1:0;
+  return {l0:l0,l1:l1,o0:o0,o1:o1,e0:e0,e1:e1,m0:m0,m1:m1,links:links,extra:extra,kosten:kosten,netto:extra-kosten,cac0:cac0,cac1:cac1,ltv0:ltv0,ltv1:ltv1};
 }
 
 function breakEven(i){
@@ -351,6 +366,9 @@ function render(){
   $('t-l0').textContent=getal(r.l0); $('t-l1').textContent=getal(r.l1);
   $('t-o0').textContent=getal(r.o0,1); $('t-o1').textContent=getal(r.o1,1);
   $('t-e0').textContent=eur(r.e0); $('t-e1').textContent=eur(r.e1);
+  $('t-c0').textContent=eur(r.cac0); $('t-c1').textContent=eur(r.cac1);
+  $('t-v0').textContent=eur(r.ltv0); $('t-v1').textContent=eur(r.ltv1);
+  $('t-q0').textContent=r.cac0>0?getal(r.ltv0/r.cac0,1)+' : 1':'-'; $('t-q1').textContent=r.cac1>0?getal(r.ltv1/r.cac1,1)+' : 1':'-';
   $('t-m0').textContent=eur(r.m0); $('t-m1').textContent=eur(r.m1);
   $('r-extra').textContent=eur(r.extra)+' per jaar';
   $('r-kosten').textContent=eur(r.kosten)+' per jaar, alleen variabel';
