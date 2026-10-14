@@ -199,6 +199,17 @@ footer a{color:var(--oranje);}
         <span class="veld" style="margin:10px 0 0"><span class="lab"><span>Aandeel van extra marge</span></span><span class="inv"><input type="range" id="tPart" min="0" max="40" step="1" value="20" data-unit="%" aria-describedby="v-tPart"><output class="uit" id="v-tPart" for="tPart"></output></span></span>
         <span class="veld" style="margin:6px 0 0"><span class="lab"><span>Drempel: eerste extra marge per jaar is voor jou</span></span><span class="inv"><input type="range" id="tDrempel" min="0" max="30000" step="1000" value="5000" data-unit="€" aria-describedby="v-tDrempel"><output class="uit" id="v-tDrempel" for="tDrempel"></output></span></span></label>
     </div>
+
+    <div class="paneel" aria-labelledby="h-seo">
+      <h2 id="h-seo">4. Meer aanvragen via SEO en GEO (optioneel)</h2>
+      <p class="hulp" style="margin-bottom:12px">De configurator rondt aanvragen beter af. Zichtbaarheid in zoekmachines (SEO) en in antwoorden van AI-tools (GEO) levert meer aanvragen op. Rechts zie je wat elk afzonderlijk doet en wat samen. Via een gespecialiseerde partner, tarief af te spreken.</p>
+      <div class="veld"><label for="seoEffect"><span>Extra aanvragen door SEO en GEO</span><button type="button" class="chip" data-bron="b-seo" aria-expanded="false">Aanname</button></label>
+        <div class="inv"><input type="range" id="seoEffect" min="0" max="100" step="5" value="20" data-unit="%" aria-describedby="v-seoEffect"><output class="uit" id="v-seoEffect" for="seoEffect"></output></div>
+        <p class="bron" id="b-seo">Aanname. Hiervoor is geen onafhankelijke bron gevonden. SEO werkt vaak pas na enkele maanden en GEO is nog jong en lastig te meten. Zet dit laag zolang je geen eigen meting hebt.</p></div>
+      <div class="veld"><label for="seoKosten"><span>Kosten SEO en GEO per maand</span><button type="button" class="chip" data-bron="b-sk" aria-expanded="false">Aanname</button></label>
+        <div class="inv"><input type="range" id="seoKosten" min="0" max="5000" step="100" value="1000" data-unit="€" aria-describedby="v-seoKosten"><output class="uit" id="v-seoKosten" for="seoKosten"></output></div>
+        <p class="bron" id="b-sk">Voorbeeldwaarde, het tarief van de partner. Dit zijn de enige vaste kosten in het model en komen niet van collegaai.</p></div>
+    </div>
   </div>
 
   <aside class="sticky" aria-label="Uitkomst">
@@ -236,6 +247,15 @@ footer a{color:var(--oranje);}
         <tbody id="vergelijk"></tbody>
       </table></div>
       <p class="hulp" style="margin-top:8px">Zelfde effect, andere verdeling van het risico. Bij &lsquo;geen effect&rsquo; zie je wat je dan kwijt bent.</p>
+    </div>
+
+    <div class="paneel">
+      <h2>Configurator, SEO en GEO, of beide</h2>
+      <div class="tabelwrap"><table class="res">
+        <thead><tr><th></th><th>Netto per jaar</th><th>CAC</th><th>LTV : CAC</th></tr></thead>
+        <tbody id="combi"></tbody>
+      </table></div>
+      <p class="hulp" style="margin-top:8px">Netto is extra marge min kosten van de tool en van SEO en GEO. De configurator rekent met de gekozen prijsoptie. De CAC is hier inclusief die kosten.</p>
     </div>
 
     <form class="paneel" id="lead" aria-labelledby="h-lead">
@@ -311,31 +331,34 @@ function invoer(){
     extraAandeel:num('extraAandeel')/100,extraWaarde:num('extraWaarde'),extraMarge:num('extraMarge')/100,gebruik:num('gebruik')/100,
     xLeads:num('xLeads')/100,xTeken:num('xTeken')/100,xExtra:num('xExtra')/100,
     model:document.querySelector('input[name=model]:checked').value,
-    mkt:num('mkt'),vervolg:num('vervolg')/100,tLink:num('tLink'),tLinkH:num('tLinkH'),tComm:num('tComm')/100,tPart:num('tPart')/100,tDrempel:num('tDrempel')
+    mkt:num('mkt'),vervolg:num('vervolg')/100,seoEffect:num('seoEffect')/100,seoKosten:num('seoKosten'),tLink:num('tLink'),tLinkH:num('tLinkH'),tComm:num('tComm')/100,tPart:num('tPart')/100,tDrempel:num('tDrempel')
   };
 }
 
 // Pure rekenfunctie. s schaalt het effect van de drie schuiven (voor break-even).
-function bereken(i,s){
+function bereken(i,s,o){
   s = (s===undefined)?1:s;
+  o = o||{config:true,seo:false};
+  if(!o.config) s=0;
   var l0=12*i.leads, o0=l0*i.offerte*i.teken;
   var e0=o0*i.extraAandeel*i.extraWaarde;
   var m0=o0*i.prijs*i.marge + e0*i.extraMarge;
-  var l1=l0*(1+i.xLeads*s);
+  var l1=l0*(1+i.xLeads*s)*(o.seo?1+i.seoEffect:1);
   var t1=Math.min(1,i.teken*(1+i.xTeken*s));
   var a1=Math.min(1,i.extraAandeel+i.xExtra*s);
   var o1=l1*i.offerte*t1;
   var e1=o1*a1*i.extraWaarde;
   var m1=o1*i.prijs*i.marge + e1*i.extraMarge;
-  var links=l1*i.gebruik;
+  var links=o.config?l1*i.gebruik:0;
   var extraOmzet=Math.max(0,e1-e0);
   var extra=m1-m0;
-  var kosten = i.model==='link' ? links*i.tLink : i.model==='hybride' ? links*i.tLinkH + i.tComm*extraOmzet : i.tPart*Math.max(0,extra-i.tDrempel);
+  var kosten = !o.config ? 0 : i.model==='link' ? links*i.tLink : i.model==='hybride' ? links*i.tLinkH + i.tComm*extraOmzet : i.tPart*Math.max(0,extra-i.tDrempel);
   var mk=12*i.mkt, a0=i.extraAandeel;
   var basis=i.prijs*i.marge*(1+i.vervolg);
   var ltv0=basis+a0*i.extraWaarde*i.extraMarge, ltv1=basis+a1*i.extraWaarde*i.extraMarge;
-  var cac0=o0>0?mk/o0:0, cac1=o1>0?(mk+kosten)/o1:0;
-  return {l0:l0,l1:l1,o0:o0,o1:o1,e0:e0,e1:e1,m0:m0,m1:m1,links:links,extra:extra,kosten:kosten,netto:extra-kosten,cac0:cac0,cac1:cac1,ltv0:ltv0,ltv1:ltv1};
+  var seoKost=o.seo?12*i.seoKosten:0;
+  var cac0=o0>0?mk/o0:0, cac1=o1>0?(mk+kosten+seoKost)/o1:0;
+  return {l0:l0,l1:l1,o0:o0,o1:o1,e0:e0,e1:e1,m0:m0,m1:m1,links:links,extra:extra,kosten:kosten,netto:extra-kosten-seoKost,seoKost:seoKost,cac0:cac0,cac1:cac1,ltv0:ltv0,ltv1:ltv1};
 }
 
 function breakEven(i){
@@ -372,6 +395,8 @@ function render(){
   $('t-m0').textContent=eur(r.m0); $('t-m1').textContent=eur(r.m1);
   $('r-extra').textContent=eur(r.extra)+' per jaar';
   $('r-kosten').textContent=eur(r.kosten)+' per jaar, alleen variabel';
+  var cmb=[['Alleen configurator',{config:true,seo:false}],['Alleen SEO en GEO',{config:false,seo:true}],['Beide',{config:true,seo:true}]];
+  $('combi').innerHTML=cmb.map(function(c){var a=bereken(i,1,c[1]);return '<tr><td>'+c[0]+'</td><td class="'+(a.netto<0?'neg':'pos')+'">'+eur(a.netto)+'</td><td>'+eur(a.cac1)+'</td><td>'+(a.cac1>0?getal(a.ltv1/a.cac1,1)+' : 1':'-')+'</td></tr>';}).join('');
   var namen={link:'Starter',hybride:'Groei',partner:'Partner'};
   $('vergelijk').innerHTML=['link','hybride','partner'].map(function(m){var a=bereken(Object.assign({},i,{model:m})),z=bereken(Object.assign({},i,{model:m}),0);return '<tr><td>'+namen[m]+(m===i.model?' \u2713':'')+'</td><td>'+eur(a.kosten)+'</td><td class="'+(a.netto<0?'neg':'pos')+'">'+eur(a.netto)+'</td><td>'+eur(z.kosten)+'</td></tr>';}).join('');
   $('r-roi').textContent = r.kosten>0 ? 'Elke euro aan toolkosten levert '+getal(r.extra/r.kosten,1)+' euro extra marge op.' : 'Geen kosten ingevuld.';
