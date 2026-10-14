@@ -44,7 +44,8 @@ h3{font-family:'Outfit',sans-serif;font-weight:700;font-size:1.05rem;margin-bott
 .veld input[type=number],.veld input[type=email]{width:100%;font:inherit;padding:10px 12px;border:1px solid var(--inkt-zacht);background:#fff;color:var(--inkt);}
 .veld input:focus-visible,button:focus-visible,summary:focus-visible,a:focus-visible,input[type=range]:focus-visible,input[type=radio]:focus-visible{outline:3px solid var(--staalblauw);outline-offset:2px;}
 .inv{display:flex;gap:8px;align-items:center;}
-.inv span.een{font-family:'IBM Plex Mono',monospace;font-size:.85rem;color:var(--inkt-zacht);min-width:3.2em;}
+.uit{font-family:'IBM Plex Mono',monospace;font-size:.95rem;font-weight:600;min-width:6.5em;text-align:right;}
+.inv input[type=range]{flex:1;}
 .hulp{font-size:.85rem;color:var(--inkt-zacht);margin-top:3px;}
 .chip{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--lijn);background:var(--vlak);color:var(--inkt);padding:2px 8px;cursor:pointer;white-space:nowrap;}
 .chip[aria-expanded=true]{background:var(--inkt);color:#fff;border-color:var(--inkt);}
@@ -115,40 +116,40 @@ footer a{color:var(--oranje);}
       <h2 id="h-invoer">1. Jouw verkoop vandaag</h2>
 
       <div class="veld"><label for="leads"><span>Aanvragen per maand</span><button type="button" class="chip" data-bron="b-leads" aria-expanded="false">Jouw invoer</button></label>
-        <div class="inv"><input type="number" id="leads" min="1" max="2000" step="1" value="40" inputmode="numeric"><span class="een">/ mnd</span></div>
+        <div class="inv"><input type="range" id="leads" min="5" max="300" step="5" value="40" data-unit="/ mnd" aria-describedby="v-leads"><output class="uit" id="v-leads" for="leads"></output></div>
         <p class="bron" id="b-leads">Contactformulieren, telefoontjes en offerteaanvragen samen. Cijfer uit je eigen administratie van de afgelopen 12 maanden, gedeeld door 12.</p></div>
 
       <div class="veld"><label for="offerte"><span>Aanvragen die een offerte krijgen</span><button type="button" class="chip" data-bron="b-offerte" aria-expanded="false">Aanname</button></label>
-        <div class="inv"><input type="number" id="offerte" min="1" max="100" step="1" value="50" inputmode="numeric"><span class="een">%</span></div>
+        <div class="inv"><input type="range" id="offerte" min="10" max="100" step="5" value="50" data-unit="%" aria-describedby="v-offerte"><output class="uit" id="v-offerte" for="offerte"></output></div>
         <p class="bron" id="b-offerte">Aanname van collegaai. Geen onafhankelijke bron gevonden. Vul het werkelijke percentage uit je eigen administratie in.</p></div>
 
       <div class="veld"><label for="teken"><span>Offertes die tekenen</span><button type="button" class="chip" data-bron="b-teken" aria-expanded="false">Leverancier</button></label>
-        <div class="inv"><input type="number" id="teken" min="1" max="100" step="0.5" value="15" inputmode="decimal"><span class="een">%</span></div>
+        <div class="inv"><input type="range" id="teken" min="1" max="40" step="0.5" value="15" data-unit="%" aria-describedby="v-teken"><output class="uit" id="v-teken" for="teken"></output></div>
         <p class="hulp" id="h-totaal"></p>
         <p class="bron" id="b-teken">De configuratorleverancier SaleSqueze noemt 5 tot 8% als gemiddelde conversie van aanvraag naar klant in de branche, zonder bron. Met 50% offertes en 15% tekenen kom je op 7,5% van de aanvragen, binnen die bandbreedte. Zie <a href="#bronnen">bronnen</a>.</p></div>
 
       <div class="veld"><label for="prijs"><span>Gemiddelde verkoopprijs tuinhuis (excl. btw)</span><button type="button" class="chip" data-bron="b-prijs" aria-expanded="false">Jouw invoer</button></label>
-        <div class="inv"><input type="number" id="prijs" min="1000" max="100000" step="500" value="15000" inputmode="numeric"><span class="een">&euro;</span></div>
+        <div class="inv"><input type="range" id="prijs" min="5000" max="40000" step="500" value="15000" data-unit="&euro;" aria-describedby="v-prijs"><output class="uit" id="v-prijs" for="prijs"></output></div>
         <p class="bron" id="b-prijs">Startwaarde is het midden van de prijsrange van 12.000 tot 18.000 euro die de verkoper hanteert. Er is geen gemiddelde orderwaarde voor de Nederlandse branche gepubliceerd gevonden.</p></div>
 
       <div class="veld"><label for="marge"><span>Brutomarge op het tuinhuis</span><button type="button" class="chip" data-bron="b-marge" aria-expanded="false">Aanname</button></label>
-        <div class="inv"><input type="number" id="marge" min="1" max="90" step="1" value="25" inputmode="numeric"><span class="een">%</span></div>
+        <div class="inv"><input type="range" id="marge" min="5" max="60" step="1" value="25" data-unit="%" aria-describedby="v-marge"><output class="uit" id="v-marge" for="marge"></output></div>
         <p class="bron" id="b-marge">Placeholder. Algemene bandbreedte voor detailhandel is 20 tot 40%, maar voor tuinhuizen is geen marge gevonden. Gebruik je eigen cijfer, na aftrek van inkoop, transport en montage.</p></div>
 
       <div class="veld"><label for="extraAandeel"><span>Opdrachten waar nu al extra&rsquo;s bij zitten</span><button type="button" class="chip" data-bron="b-ea" aria-expanded="false">Aanname</button></label>
-        <div class="inv"><input type="number" id="extraAandeel" min="0" max="100" step="1" value="30" inputmode="numeric"><span class="een">%</span></div>
+        <div class="inv"><input type="range" id="extraAandeel" min="0" max="100" step="5" value="30" data-unit="%" aria-describedby="v-extraAandeel"><output class="uit" id="v-extraAandeel" for="extraAandeel"></output></div>
         <p class="bron" id="b-ea">Denk aan isolatie, vloer, elektra, verlichting, overkapping, extra ramen of fundering. Aanname, vul je eigen aandeel in.</p></div>
 
       <div class="veld"><label for="extraWaarde"><span>Gemiddelde waarde van de extra&rsquo;s per opdracht</span><button type="button" class="chip" data-bron="b-ew" aria-expanded="false">Aanname</button></label>
-        <div class="inv"><input type="number" id="extraWaarde" min="0" max="50000" step="100" value="2500" inputmode="numeric"><span class="een">&euro;</span></div>
+        <div class="inv"><input type="range" id="extraWaarde" min="0" max="15000" step="250" value="2500" data-unit="&euro;" aria-describedby="v-extraWaarde"><output class="uit" id="v-extraWaarde" for="extraWaarde"></output></div>
         <p class="bron" id="b-ew">Aanname. Er zijn geen onafhankelijke cijfers gevonden. Een configurator kan extra&rsquo;s wel tonen op het moment dat de klant ze overweegt.</p></div>
 
       <div class="veld"><label for="extraMarge"><span>Brutomarge op extra&rsquo;s</span><button type="button" class="chip" data-bron="b-em" aria-expanded="false">Aanname</button></label>
-        <div class="inv"><input type="number" id="extraMarge" min="1" max="90" step="1" value="35" inputmode="numeric"><span class="een">%</span></div>
+        <div class="inv"><input type="range" id="extraMarge" min="5" max="70" step="1" value="35" data-unit="%" aria-describedby="v-extraMarge"><output class="uit" id="v-extraMarge" for="extraMarge"></output></div>
         <p class="bron" id="b-em">Aanname. Opties hebben vaak een hogere marge dan het basismodel, maar dat verschilt per leverancier.</p></div>
 
       <div class="veld"><label for="gebruik"><span>Aanvragen die een persoonlijke link krijgen</span><button type="button" class="chip" data-bron="b-gb" aria-expanded="false">Aanname</button></label>
-        <div class="inv"><input type="number" id="gebruik" min="1" max="100" step="5" value="60" inputmode="numeric"><span class="een">%</span></div>
+        <div class="inv"><input type="range" id="gebruik" min="10" max="100" step="5" value="60" data-unit="%" aria-describedby="v-gebruik"><output class="uit" id="v-gebruik" for="gebruik"></output></div>
         <p class="bron" id="b-gb">Bepaalt hoeveel links je per maand aanmaakt, en dus wat je betaalt bij een tarief per link. Laag houden is een goede manier om kosten te beheersen.</p></div>
     </form>
 
@@ -184,9 +185,9 @@ footer a{color:var(--oranje);}
       <label class="opt"><input type="radio" name="model" value="link" checked> <b>Per aangemaakte link</b><small>Je betaalt alleen als je een link voor een klant aanmaakt. Eenvoudig te begrijpen en goed te voorspellen.</small></label>
       <label class="opt"><input type="radio" name="model" value="hybride"> <b>Lagere prijs per link plus commissie op extra&rsquo;s</b><small>Je betaalt minder per link en een percentage van de extra optieomzet die de tool aantoonbaar oplevert. Je risico is lager, mijn inkomen hangt meer van het resultaat af.</small></label>
       <div class="tarief">
-        <div class="veld"><label for="tLink"><span>Bedrag per link</span></label><div class="inv"><input type="number" id="tLink" min="0" step="1" value="15"><span class="een">&euro;</span></div></div>
-        <div class="veld"><label for="tLinkH"><span>Per link (met commissie)</span></label><div class="inv"><input type="number" id="tLinkH" min="0" step="1" value="6"><span class="een">&euro;</span></div></div>
-        <div class="veld"><label for="tComm"><span>Commissie op extra optieomzet</span></label><div class="inv"><input type="number" id="tComm" min="0" max="50" step="1" value="10"><span class="een">%</span></div></div>
+        <div class="veld"><label for="tLink"><span>Bedrag per link</span></label><div class="inv"><input type="range" id="tLink" min="0" max="50" step="1" value="15" data-unit="&euro;" aria-describedby="v-tLink"><output class="uit" id="v-tLink" for="tLink"></output></div></div>
+        <div class="veld"><label for="tLinkH"><span>Per link (met commissie)</span></label><div class="inv"><input type="range" id="tLinkH" min="0" max="50" step="1" value="6" data-unit="&euro;" aria-describedby="v-tLinkH"><output class="uit" id="v-tLinkH" for="tLinkH"></output></div></div>
+        <div class="veld"><label for="tComm"><span>Commissie op extra optieomzet</span></label><div class="inv"><input type="range" id="tComm" min="0" max="30" step="1" value="10" data-unit="%" aria-describedby="v-tComm"><output class="uit" id="v-tComm" for="tComm"></output></div></div>
       </div>
       <p class="hulp">De commissie telt alleen over optieomzet bovenop wat je nu al verkoopt, zodat je niet betaalt voor wat je ook zonder de tool had gehaald.</p>
     </div>
@@ -320,7 +321,15 @@ function breakEven(i){
   return hi;
 }
 
+function uitlezing(){
+  document.querySelectorAll('input[data-unit]').forEach(function(el){
+    var u=el.dataset.unit, v=parseFloat(el.value), o=$('v-'+el.id);
+    o.textContent = u==='€' ? eur(v) : getal(v,v%1?1:0)+' '+u.replace('/mnd','per mnd');
+  });
+}
+
 function render(){
+  uitlezing();
   var i=invoer(), r=bereken(i), nul=bereken(i,0), be=breakEven(i);
   $('o-xLeads').textContent='+'+Math.round(i.xLeads*100)+'%';
   $('o-xTeken').textContent='+'+Math.round(i.xTeken*100)+'%';
@@ -376,7 +385,7 @@ function zetScenario(naam){
 
 document.querySelectorAll('input').forEach(function(el){
   el.addEventListener('input',function(){
-    if(el.type==='range'){scenario='eigen';document.querySelectorAll('[data-scen]').forEach(function(b){b.setAttribute('aria-pressed','false');});}
+    if(el.type==='range'&&/^x/.test(el.id)){scenario='eigen';document.querySelectorAll('[data-scen]').forEach(function(b){b.setAttribute('aria-pressed','false');});}
     if(el.id==='email'||el.id==='toest'){render();return;}
     gewijzigd();
   });
