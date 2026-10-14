@@ -176,20 +176,20 @@ footer a{color:var(--oranje);}
     </div>
 
     <div class="paneel" aria-labelledby="h-prijs">
-      <h2 id="h-prijs">3. Wat kost het?</h2>
-      <p class="hulp" style="margin-bottom:12px">Voorbeeldtarieven. Je kunt ze hieronder aanpassen om te zien wat bij jou past.</p>
+      <h2 id="h-prijs">3. Kies hoe je betaalt</h2>
+      <p class="hulp" style="margin-bottom:12px">Geen vaste maandkosten, in geen van de drie. Hoe meer de tool oplevert, hoe meer je betaalt, en bij geen resultaat betaal je in de laatste optie niets. Tarieven zijn voorbeeldwaarden die je kunt aanpassen.</p>
       <div class="paneel pilot" style="margin-bottom:14px;padding:14px">
-        <h3>Start met een pilot</h3>
-        <p style="font-size:.93rem">6 weken, maximaal 25 persoonlijke links, de configurator met jouw modellen en opties. Aan het eind kijken we samen naar jouw eigen cijfers en bepalen we of je doorgaat. Dit is een voorbeeldopzet, het tarief spreken we af.</p>
+        <h3>Eerst een pilot, zonder vaste kosten</h3>
+        <p style="font-size:.93rem">De eerste 25 persoonlijke links zijn gratis, met jouw modellen en opties erin. Daarna kijken we samen naar jouw eigen cijfers en kies je een van de drie opties. Voorbeeldopzet, de details spreken we af.</p>
       </div>
-      <label class="opt"><input type="radio" name="model" value="link" checked> <b>Per aangemaakte link</b><small>Je betaalt alleen als je een link voor een klant aanmaakt. Eenvoudig te begrijpen en goed te voorspellen.</small></label>
-      <label class="opt"><input type="radio" name="model" value="hybride"> <b>Lagere prijs per link plus commissie op extra&rsquo;s</b><small>Je betaalt minder per link en een percentage van de extra optieomzet die de tool aantoonbaar oplevert. Je risico is lager, mijn inkomen hangt meer van het resultaat af.</small></label>
-      <div class="tarief">
-        <div class="veld"><label for="tLink"><span>Bedrag per link</span></label><div class="inv"><input type="range" id="tLink" min="0" max="50" step="1" value="15" data-unit="&euro;" aria-describedby="v-tLink"><output class="uit" id="v-tLink" for="tLink"></output></div></div>
-        <div class="veld"><label for="tLinkH"><span>Per link (met commissie)</span></label><div class="inv"><input type="range" id="tLinkH" min="0" max="50" step="1" value="6" data-unit="&euro;" aria-describedby="v-tLinkH"><output class="uit" id="v-tLinkH" for="tLinkH"></output></div></div>
-        <div class="veld"><label for="tComm"><span>Commissie op extra optieomzet</span></label><div class="inv"><input type="range" id="tComm" min="0" max="30" step="1" value="10" data-unit="%" aria-describedby="v-tComm"><output class="uit" id="v-tComm" for="tComm"></output></div></div>
-      </div>
-      <p class="hulp">De commissie telt alleen over optieomzet bovenop wat je nu al verkoopt, zodat je niet betaalt voor wat je ook zonder de tool had gehaald.</p>
+      <label class="opt"><input type="radio" name="model" value="link" checked> <b>Starter: betaal per link</b><small>Je betaalt alleen voor links die je voor een klant aanmaakt. Eenvoudig en goed te voorspellen.</small>
+        <span class="veld" style="margin:10px 0 0"><span class="lab"><span>Bedrag per link</span></span><span class="inv"><input type="range" id="tLink" min="0" max="50" step="1" value="15" data-unit="€" aria-describedby="v-tLink"><output class="uit" id="v-tLink" for="tLink"></output></span></span></label>
+      <label class="opt"><input type="radio" name="model" value="hybride"> <b>Groei: lagere prijs per link plus commissie op extra&rsquo;s</b><small>Je betaalt minder per link en een percentage van de extra optieomzet die de tool oplevert, bovenop wat je nu al verkoopt.</small>
+        <span class="veld" style="margin:10px 0 0"><span class="lab"><span>Bedrag per link</span></span><span class="inv"><input type="range" id="tLinkH" min="0" max="50" step="1" value="6" data-unit="€" aria-describedby="v-tLinkH"><output class="uit" id="v-tLinkH" for="tLinkH"></output></span></span>
+        <span class="veld" style="margin:6px 0 0"><span class="lab"><span>Commissie op extra optieomzet</span></span><span class="inv"><input type="range" id="tComm" min="0" max="30" step="1" value="10" data-unit="%" aria-describedby="v-tComm"><output class="uit" id="v-tComm" for="tComm"></output></span></span></label>
+      <label class="opt"><input type="radio" name="model" value="partner"> <b>Partner: alleen betalen bij resultaat</b><small>Geen bedrag per link. Je betaalt een percentage van de extra brutomarge, pas boven een drempel. Levert de tool niets op, dan betaal je niets.</small>
+        <span class="veld" style="margin:10px 0 0"><span class="lab"><span>Aandeel van extra marge</span></span><span class="inv"><input type="range" id="tPart" min="0" max="40" step="1" value="20" data-unit="%" aria-describedby="v-tPart"><output class="uit" id="v-tPart" for="tPart"></output></span></span>
+        <span class="veld" style="margin:6px 0 0"><span class="lab"><span>Drempel: eerste extra marge per jaar is voor jou</span></span><span class="inv"><input type="range" id="tDrempel" min="0" max="30000" step="1000" value="5000" data-unit="€" aria-describedby="v-tDrempel"><output class="uit" id="v-tDrempel" for="tDrempel"></output></span></span></label>
     </div>
   </div>
 
@@ -216,6 +216,15 @@ footer a{color:var(--oranje);}
       <div class="punt"><b>Rendement</b><span id="r-roi"></span></div>
       <div class="punt"><b>Break-even</b><span id="r-be"></span></div>
       <div class="punt"><b>Als het niets oplevert</b><span id="r-nul"></span></div>
+    </div>
+
+    <div class="paneel">
+      <h2>De drie opties naast elkaar</h2>
+      <div class="tabelwrap"><table class="res">
+        <thead><tr><th></th><th>Kosten</th><th>Netto</th><th>Bij geen effect</th></tr></thead>
+        <tbody id="vergelijk"></tbody>
+      </table></div>
+      <p class="hulp" style="margin-top:8px">Zelfde effect, andere verdeling van het risico. Bij &lsquo;geen effect&rsquo; zie je wat je dan kwijt bent.</p>
     </div>
 
     <form class="paneel" id="lead" aria-labelledby="h-lead">
@@ -291,7 +300,7 @@ function invoer(){
     extraAandeel:num('extraAandeel')/100,extraWaarde:num('extraWaarde'),extraMarge:num('extraMarge')/100,gebruik:num('gebruik')/100,
     xLeads:num('xLeads')/100,xTeken:num('xTeken')/100,xExtra:num('xExtra')/100,
     model:document.querySelector('input[name=model]:checked').value,
-    tLink:num('tLink'),tLinkH:num('tLinkH'),tComm:num('tComm')/100
+    tLink:num('tLink'),tLinkH:num('tLinkH'),tComm:num('tComm')/100,tPart:num('tPart')/100,tDrempel:num('tDrempel')
   };
 }
 
@@ -309,8 +318,8 @@ function bereken(i,s){
   var m1=o1*i.prijs*i.marge + e1*i.extraMarge;
   var links=l1*i.gebruik;
   var extraOmzet=Math.max(0,e1-e0);
-  var kosten = i.model==='link' ? links*i.tLink : links*i.tLinkH + i.tComm*extraOmzet;
   var extra=m1-m0;
+  var kosten = i.model==='link' ? links*i.tLink : i.model==='hybride' ? links*i.tLinkH + i.tComm*extraOmzet : i.tPart*Math.max(0,extra-i.tDrempel);
   return {l0:l0,l1:l1,o0:o0,o1:o1,e0:e0,e1:e1,m0:m0,m1:m1,links:links,extra:extra,kosten:kosten,netto:extra-kosten};
 }
 
@@ -344,10 +353,12 @@ function render(){
   $('t-e0').textContent=eur(r.e0); $('t-e1').textContent=eur(r.e1);
   $('t-m0').textContent=eur(r.m0); $('t-m1').textContent=eur(r.m1);
   $('r-extra').textContent=eur(r.extra)+' per jaar';
-  $('r-kosten').textContent=eur(r.kosten)+' per jaar ('+eur(r.kosten/12)+' per maand)';
+  $('r-kosten').textContent=eur(r.kosten)+' per jaar, alleen variabel';
+  var namen={link:'Starter',hybride:'Groei',partner:'Partner'};
+  $('vergelijk').innerHTML=['link','hybride','partner'].map(function(m){var a=bereken(Object.assign({},i,{model:m})),z=bereken(Object.assign({},i,{model:m}),0);return '<tr><td>'+namen[m]+(m===i.model?' \u2713':'')+'</td><td>'+eur(a.kosten)+'</td><td class="'+(a.netto<0?'neg':'pos')+'">'+eur(a.netto)+'</td><td>'+eur(z.kosten)+'</td></tr>';}).join('');
   $('r-roi').textContent = r.kosten>0 ? 'Elke euro aan toolkosten levert '+getal(r.extra/r.kosten,1)+' euro extra marge op.' : 'Geen kosten ingevuld.';
   $('r-be').textContent = be===null ? 'Zelfs bij driemaal het gekozen effect is het niet rendabel.' : 'Je hebt minstens '+Math.round(be*100)+'% van het gekozen effect nodig om uit de kosten te komen.';
-  $('r-nul').innerHTML = 'Je betaalt dan '+eur(nul.kosten)+' per jaar ('+getal(nul.links)+' links) en verdient niets extra. <span class="neg">Dat is je maximale verlies op jaarbasis.</span>';
+  $('r-nul').innerHTML = nul.kosten===0 ? 'Je betaalt dan niets en verliest niets.' : 'Je betaalt dan '+eur(nul.kosten)+' per jaar ('+getal(nul.links)+' links) en verdient niets extra. <span class="neg">Dat is je maximale verlies op jaarbasis.</span>';
   $('verstuur').disabled = !($('toest').checked && /.+@.+\..+/.test($('email').value));
   return {i:i,r:r,be:be};
 }
