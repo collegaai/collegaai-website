@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rekenmodel configurator voor tuinhuisverkopers | collegaai.nl</title>
+<meta name="description" content="Speel met je eigen cijfers: wat levert een configurator met persoonlijke klantlinks op in extra leads, conversie en optieverkoop, en wat kost het? Met bronnen en kanttekeningen.">
+<link rel="canonical" href="https://collegaai.nl/tuinhuis-calculator.html">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#14262E">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/outfit-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Outfit';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/outfit-latin-700-normal.woff2) format('woff2');}
+@font-face{font-family:'Outfit';font-style:normal;font-weight:800;font-display:swap;src:url(/fonts/outfit-latin-800-normal.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/ibm-plex-sans-latin-400-normal.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/ibm-plex-sans-latin-600-normal.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/ibm-plex-mono-latin-400-normal.woff2) format('woff2');}
+:root{--papier:#F4F2EE;--inkt:#14262E;--inkt-zacht:#41525F;--lijn:#D3D0C9;--lijn-licht:#E4E1DB;--oranje:#B5470A;--staalblauw:#0F4C5C;--vlak:#ECE9E3;--groen:#1F6B3A;--rood:#9B2C1F;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'IBM Plex Sans',sans-serif;background:var(--papier);color:var(--inkt);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:1100px;margin:0 auto;padding:0 clamp(16px,5vw,56px);}
+header{border-bottom:1px solid var(--lijn-licht);}
+.topbalk{display:flex;align-items:center;justify-content:space-between;padding-top:22px;padding-bottom:14px;gap:16px;}
+.logo{display:flex;flex-direction:column;gap:6px;text-decoration:none;color:var(--inkt);}
+.logo img{height:30px;width:auto;display:block;}
+.logo-sub{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--inkt-zacht);}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--staalblauw);display:flex;align-items:center;gap:12px;margin-bottom:18px;}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--oranje);}
+h1{font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3.3rem);line-height:1.08;letter-spacing:-.02em;text-wrap:balance;}
+h1 .accent{color:var(--oranje);}
+h2{font-family:'Outfit',sans-serif;font-weight:700;font-size:clamp(1.3rem,2.6vw,1.75rem);line-height:1.15;letter-spacing:-.015em;margin-bottom:14px;}
+h3{font-family:'Outfit',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:8px;}
+.lead{font-size:1.1rem;color:var(--inkt-zacht);max-width:62ch;margin-top:18px;}
+.hero{padding-top:clamp(36px,6vw,72px);padding-bottom:28px;}
+.disclaimer{margin-top:22px;padding:12px 16px;border-left:3px solid var(--oranje);background:var(--vlak);font-size:.92rem;max-width:70ch;}
+.layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:32px;align-items:start;padding-bottom:40px;}
+.paneel{background:#fff;border:1px solid var(--lijn);padding:22px;margin-bottom:20px;}
+.paneel > h2{font-size:1.15rem;}
+.veld{margin-bottom:16px;}
+.veld label,.veld .lab{display:flex;justify-content:space-between;gap:12px;font-weight:600;font-size:.95rem;margin-bottom:4px;}
+.veld input[type=number],.veld input[type=email]{width:100%;font:inherit;padding:10px 12px;border:1px solid var(--inkt-zacht);background:#fff;color:var(--inkt);}
+.veld input:focus-visible,button:focus-visible,summary:focus-visible,a:focus-visible,input[type=range]:focus-visible,input[type=radio]:focus-visible{outline:3px solid var(--staalblauw);outline-offset:2px;}
+.inv{display:flex;gap:8px;align-items:center;}
+.inv span.een{font-family:'IBM Plex Mono',monospace;font-size:.85rem;color:var(--inkt-zacht);min-width:3.2em;}
+.hulp{font-size:.85rem;color:var(--inkt-zacht);margin-top:3px;}
+.chip{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--lijn);background:var(--vlak);color:var(--inkt);padding:2px 8px;cursor:pointer;white-space:nowrap;}
+.chip[aria-expanded=true]{background:var(--inkt);color:#fff;border-color:var(--inkt);}
+.chip.lev{border-color:var(--oranje);}
+.bron{display:none;font-size:.85rem;background:var(--vlak);padding:8px 10px;margin-top:6px;color:var(--inkt-zacht);}
+.bron.open{display:block;}
+.bron a{color:var(--oranje);}
+.scen{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+.scen button{font:inherit;font-size:.9rem;padding:8px 14px;border:1px solid var(--inkt);background:#fff;color:var(--inkt);cursor:pointer;}
+.scen button[aria-pressed=true]{background:var(--inkt);color:#fff;}
+input[type=range]{width:100%;accent-color:var(--oranje);}
+.opt{display:block;border:1px solid var(--lijn);padding:12px 14px;margin-bottom:10px;cursor:pointer;}
+.opt:has(input:checked){border-color:var(--inkt);background:var(--vlak);}
+.opt b{display:block;}
+.opt small{color:var(--inkt-zacht);}
+.tarief{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px;}
+.sticky{position:sticky;top:12px;}
+.kop-getal{background:var(--inkt);color:#fff;padding:22px;margin-bottom:16px;}
+.kop-getal .k{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#C9D3D8;}
+.kop-getal .g{font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(2rem,5vw,2.8rem);line-height:1.1;margin:4px 0;}
+.kop-getal .g.neg{color:#FFB4A6;}
+.kop-getal p{color:#E6ECEF;font-size:.92rem;}
+table.res{width:100%;border-collapse:collapse;font-size:.93rem;}
+table.res th,table.res td{padding:8px 6px;border-bottom:1px solid var(--lijn-licht);text-align:right;}
+table.res th:first-child,table.res td:first-child{text-align:left;font-weight:600;}
+table.res thead th{font-family:'IBM Plex Mono',monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--inkt-zacht);}
+.pos{color:var(--groen);font-weight:600;}.neg{color:var(--rood);font-weight:600;}
+.punt{display:flex;gap:10px;margin-top:10px;font-size:.93rem;}
+.punt b{min-width:9.5em;}
+.pilot{background:var(--vlak);}
+.knop{font:inherit;font-weight:600;background:var(--oranje);color:#fff;border:0;padding:12px 20px;cursor:pointer;box-shadow:4px 4px 0 var(--inkt);}
+.knop:disabled{opacity:.6;cursor:default;}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:.9rem;margin:10px 0;}
+.check input{margin-top:5px;}
+.status{font-size:.9rem;margin-top:10px;min-height:1.4em;}
+section.bronnen{padding:20px 0 56px;}
+.tabelwrap{overflow-x:auto;}
+table.br{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--lijn);font-size:.9rem;}
+table.br th,table.br td{padding:10px 12px;border-bottom:1px solid var(--lijn-licht);text-align:left;vertical-align:top;}
+table.br thead th{background:var(--vlak);font-family:'IBM Plex Mono',monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;}
+table.br a{color:var(--oranje);}
+.kanttekening{margin-top:18px;max-width:75ch;}
+.kanttekening li{margin-left:20px;margin-bottom:6px;color:var(--inkt-zacht);}
+footer{border-top:1px solid var(--lijn);padding:22px 0 40px;font-size:.88rem;color:var(--inkt-zacht);}
+footer a{color:var(--oranje);}
+@media(max-width:860px){.layout{grid-template-columns:1fr;}.sticky{position:static;}.tarief{grid-template-columns:1fr;}.punt{flex-direction:column;gap:0;}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap topbalk">
+    <a class="logo" href="/"><img src="/logo/collegaai-woordmerk.svg" alt="collegaai" width="104" height="30"><span class="logo-sub">AI-implementatie voor bouw en tuin</span></a>
+  </div>
+</header>
+
+<main>
+<div class="wrap hero">
+  <p class="eyebrow">Rekenmodel &middot; voor verkopers van tuinhuizen</p>
+  <h1>Wat levert een configurator met <span class="accent">persoonlijke klantlinks</span> jou op?</h1>
+  <p class="lead">Je klant stelt zijn tuinhuis samen, ziet direct een indicatieve prijs en de opties die erbij passen, en jij krijgt een warme lead. Vul je eigen cijfers in en kijk wat extra leads, een hogere conversie en meer optieverkoop opleveren, en wat het kost.</p>
+  <p class="disclaimer"><b>Lees dit eerst.</b> Dit is een rekenmodel, geen belofte. Alle standaardwaarden zijn aannames die je kunt overschrijven. De cijfers uit de branche komen grotendeels van leveranciers van configurators. Onder de berekening staat per cijfer waar het vandaan komt en hoe betrouwbaar het is.</p>
+</div>
+
+<div class="wrap layout">
+  <div>
+    <form class="paneel" id="invoer" aria-labelledby="h-invoer" onsubmit="return false">
+      <h2 id="h-invoer">1. Jouw verkoop vandaag</h2>
+
+      <div class="veld"><label for="leads"><span>Aanvragen per maand</span><button type="button" class="chip" data-bron="b-leads" aria-expanded="false">Jouw invoer</button></label>
+        <div class="inv"><input type="number" id="leads" min="1" max="2000" step="1" value="40" inputmode="numeric"><span class="een">/ mnd</span></div>
+        <p class="bron" id="b-leads">Contactformulieren, telefoontjes en offerteaanvragen samen. Cijfer uit je eigen administratie van de afgelopen 12 maanden, gedeeld door 12.</p></div>
+
+      <div class="veld"><label for="offerte"><span>Aanvragen die een offerte krijgen</span><button type="button" class="chip" data-bron="b-offerte" aria-expanded="false">Aanname</button></label>
+        <div class="inv"><input type="number" id="offerte" min="1" max="100" step="1" value="50" inputmode="numeric"><span class="een">%</span></div>
+        <p class="bron" id="b-offerte">Aanname van collegaai. Geen onafhankelijke bron gevonden. Vul het werkelijke percentage uit je eigen administratie in.</p></div>
+
+      <div class="veld"><label for="teken"><span>Offertes die tekenen</span><button type="button" class="chip" data-bron="b-teken" aria-expanded="false">Leverancier</button></label>
+        <div class="inv"><input type="number" id="teken" min="1" max="100" step="0.5" value="15" inputmode="decimal"><span class="een">%</span></div>
+        <p class="hulp" id="h-totaal"></p>
+        <p class="bron" id="b-teken">De configuratorleverancier SaleSqueze noemt 5 tot 8% als gemiddelde conversie van aanvraag naar klant in de branche, zonder bron. Met 50% offertes en 15% tekenen kom je op 7,5% van de aanvragen, binnen die bandbreedte. Zie <a href="#bronnen">bronnen</a>.</p></div>
+
+      <div class="veld"><label for="prijs"><span>Gemiddelde verkoopprijs tuinhuis (excl. btw)</span><button type="button" class="chip" data-bron="b-prijs" aria-expanded="false">Jouw invoer</button></label>
+        <div class="inv"><input type="number" id="prijs" min="1000" max="100000" step="500" value="15000" inputmode="numeric"><span class="een">&euro;</span></div>
+        <p class="bron" id="b-prijs">Startwaarde is het midden van de prijsrange van 12.000 tot 18.000 euro die de verkoper hanteert. Er is geen gemiddelde orderwaarde voor de Nederlandse branche gepubliceerd gevonden.</p></div>
+
+      <div class="veld"><label for="marge"><span>Brutomarge op het tuinhuis</span><button type="button" class="chip" data-bron="b-marge" aria-expanded="false">Aanname</button></label>
+        <div class="inv"><input type="number" id="marge" min="1" max="90" step="1" value="25" inputmode="numeric"><span class="een">%</span></div>
+        <p class="bron" id="b-marge">Placeholder. Algemene bandbreedte voor detailhandel is 20 tot 40%, maar voor tuinhuizen is geen marge gevonden. Gebruik je eigen cijfer, na aftrek van inkoop, transport en montage.</p></div>
+
+      <div class="veld"><label for="extraAandeel"><span>Opdrachten waar nu al extra&rsquo;s bij zitten</span><button type="button" class="chip" data-bron="b-ea" aria-expanded="false">Aanname</button></label>
+        <div class="inv"><input type="number" id="extraAandeel" min="0" max="100" step="1" value="30" inputmode="numeric"><span class="een">%</span></div>
+        <p class="bron" id="b-ea">Denk aan isolatie, vloer, elektra, verlichting, overkapping, extra ramen of fundering. Aanname, vul je eigen aandeel in.</p></div>
+
+      <div class="veld"><label for="extraWaarde"><span>Gemiddelde waarde van de extra&rsquo;s per opdracht</span><button type="button" class="chip" data-bron="b-ew" aria-expanded="false">Aanname</button></label>
+        <div class="inv"><input type="number" id="extraWaarde" min="0" max="50000" step="100" value="2500" inputmode="numeric"><span class="een">&euro;</span></div>
+        <p class="bron" id="b-ew">Aanname. Er zijn geen onafhankelijke cijfers gevonden. Een configurator kan extra&rsquo;s wel tonen op het moment dat de klant ze overweegt.</p></div>
+
+      <div class="veld"><label for="extraMarge"><span>Brutomarge op extra&rsquo;s</span><button type="button" class="chip" data-bron="b-em" aria-expanded="false">Aanname</button></label>
+        <div class="inv"><input type="number" id="extraMarge" min="1" max="90" step="1" value="35" inputmode="numeric"><span class="een">%</span></div>
+        <p class="bron" id="b-em">Aanname. Opties hebben vaak een hogere marge dan het basismodel, maar dat verschilt per leverancier.</p></div>
+
+      <div class="veld"><label for="gebruik"><span>Aanvragen die een persoonlijke link krijgen</span><button type="button" class="chip" data-bron="b-gb" aria-expanded="false">Aanname</button></label>
+        <div class="inv"><input type="number" id="gebruik" min="1" max="100" step="5" value="60" inputmode="numeric"><span class="een">%</span></div>
+        <p class="bron" id="b-gb">Bepaalt hoeveel links je per maand aanmaakt, en dus wat je betaalt bij een tarief per link. Laag houden is een goede manier om kosten te beheersen.</p></div>
+    </form>
+
+    <div class="paneel" aria-labelledby="h-effect">
+      <h2 id="h-effect">2. Wat doet de configurator?</h2>
+      <p class="hulp" style="margin-bottom:10px">Kies een scenario of stel zelf de schuiven in. Begin met &lsquo;voorzichtig&rsquo;. De scenario&rsquo;s zijn aannames van collegaai, geen meetresultaten.</p>
+      <div class="scen" role="group" aria-label="Scenario">
+        <button type="button" data-scen="geen" aria-pressed="false">Geen effect</button>
+        <button type="button" data-scen="voorzichtig" aria-pressed="true">Voorzichtig</button>
+        <button type="button" data-scen="verwacht" aria-pressed="false">Verwacht</button>
+        <button type="button" data-scen="ambitieus" aria-pressed="false">Ambitieus</button>
+      </div>
+      <div class="veld"><label for="xLeads"><span>Extra aanvragen</span><span id="o-xLeads">+5%</span></label>
+        <input type="range" id="xLeads" min="0" max="50" step="1" value="5">
+        <p class="hulp">Meer bezoekers die een aanvraag doen, doordat de configurator een laagdrempelige eerste stap is.</p></div>
+      <div class="veld"><label for="xTeken"><span>Hogere tekenkans per offerte (relatief)</span><span id="o-xTeken">+5%</span></label>
+        <input type="range" id="xTeken" min="0" max="50" step="1" value="5">
+        <p class="hulp">+10% bij 15% tekenen betekent 16,5%. De klant heeft al samengesteld wat hij wil.</p></div>
+      <div class="veld"><label for="xExtra"><span>Meer opdrachten met extra&rsquo;s (procentpunten)</span><span id="o-xExtra">+3 pp</span></label>
+        <input type="range" id="xExtra" min="0" max="30" step="1" value="3">
+        <p class="hulp">Extra&rsquo;s worden zichtbaar op het moment van kiezen, niet pas in het offertegesprek.</p></div>
+      <p><button type="button" class="chip lev" data-bron="b-eff" aria-expanded="false">Waar komen deze percentages vandaan?</button></p>
+      <p class="bron" id="b-eff">Leveranciers noemen +25% conversie door geautomatiseerde offertes en een sprong van 5 tot 8% naar 17% conversie bij een casus. Beide zijn marketingcijfers zonder controlegroep. Het scenario &lsquo;ambitieus&rsquo; zit in die buurt, &lsquo;voorzichtig&rsquo; is bewust ver eronder. In de casus Spolding and Sons deed de configurator alleen weinig. Het effect kwam pas met een compleet traject eromheen. Zie <a href="#bronnen">bronnen</a>.</p>
+    </div>
+
+    <div class="paneel" aria-labelledby="h-prijs">
+      <h2 id="h-prijs">3. Wat kost het?</h2>
+      <p class="hulp" style="margin-bottom:12px">Voorbeeldtarieven. Je kunt ze hieronder aanpassen om te zien wat bij jou past.</p>
+      <div class="paneel pilot" style="margin-bottom:14px;padding:14px">
+        <h3>Start met een pilot</h3>
+        <p style="font-size:.93rem">6 weken, maximaal 25 persoonlijke links, de configurator met jouw modellen en opties. Aan het eind kijken we samen naar jouw eigen cijfers en bepalen we of je doorgaat. Dit is een voorbeeldopzet, het tarief spreken we af.</p>
+      </div>
+      <label class="opt"><input type="radio" name="model" value="link" checked> <b>Per aangemaakte link</b><small>Je betaalt alleen als je een link voor een klant aanmaakt. Eenvoudig te begrijpen en goed te voorspellen.</small></label>
+      <label class="opt"><input type="radio" name="model" value="hybride"> <b>Lagere prijs per link plus commissie op extra&rsquo;s</b><small>Je betaalt minder per link en een percentage van de extra optieomzet die de tool aantoonbaar oplevert. Je risico is lager, mijn inkomen hangt meer van het resultaat af.</small></label>
+      <div class="tarief">
+        <div class="veld"><label for="tLink"><span>Bedrag per link</span></label><div class="inv"><input type="number" id="tLink" min="0" step="1" value="15"><span class="een">&euro;</span></div></div>
+        <div class="veld"><label for="tLinkH"><span>Per link (met commissie)</span></label><div class="inv"><input type="number" id="tLinkH" min="0" step="1" value="6"><span class="een">&euro;</span></div></div>
+        <div class="veld"><label for="tComm"><span>Commissie op extra optieomzet</span></label><div class="inv"><input type="number" id="tComm" min="0" max="50" step="1" value="10"><span class="een">%</span></div></div>
+      </div>
+      <p class="hulp">De commissie telt alleen over optieomzet bovenop wat je nu al verkoopt, zodat je niet betaalt voor wat je ook zonder de tool had gehaald.</p>
+    </div>
+  </div>
+
+  <aside class="sticky" aria-label="Uitkomst">
+    <div class="kop-getal" aria-live="polite">
+      <div class="k">Netto extra marge per jaar</div>
+      <div class="g" id="r-netto">&euro; 0</div>
+      <p id="r-zin"></p>
+    </div>
+
+    <div class="paneel">
+      <h2>Zo is het opgebouwd</h2>
+      <table class="res">
+        <thead><tr><th></th><th>Nu</th><th>Met tool</th></tr></thead>
+        <tbody>
+          <tr><td>Aanvragen per jaar</td><td id="t-l0"></td><td id="t-l1"></td></tr>
+          <tr><td>Verkochte tuinhuizen</td><td id="t-o0"></td><td id="t-o1"></td></tr>
+          <tr><td>Extra&rsquo;s per jaar (omzet)</td><td id="t-e0"></td><td id="t-e1"></td></tr>
+          <tr><td>Brutomarge per jaar</td><td id="t-m0"></td><td id="t-m1"></td></tr>
+        </tbody>
+      </table>
+      <div class="punt"><b>Extra marge</b><span id="r-extra"></span></div>
+      <div class="punt"><b>Kosten tool</b><span id="r-kosten"></span></div>
+      <div class="punt"><b>Rendement</b><span id="r-roi"></span></div>
+      <div class="punt"><b>Break-even</b><span id="r-be"></span></div>
+      <div class="punt"><b>Als het niets oplevert</b><span id="r-nul"></span></div>
+    </div>
+
+    <form class="paneel" id="lead" aria-labelledby="h-lead">
+      <h2 id="h-lead">Bespreek jouw cijfers</h2>
+      <p style="font-size:.93rem;margin-bottom:10px">Laat je mailadres achter, dan neem ik contact op met deze berekening erbij. Niet verplicht.</p>
+      <div class="veld"><label for="email"><span>E-mailadres</span></label><input type="email" id="email" autocomplete="email" placeholder="naam@bedrijf.nl"></div>
+      <label class="check"><input type="checkbox" id="toest"> <span>Ik geef toestemming dat collegaai.nl mijn mailadres en deze berekening gebruikt om contact met mij op te nemen. Zie de <a href="/privacy.html">privacyverklaring</a>.</span></label>
+      <button class="knop" type="submit" id="verstuur" disabled>Neem contact met mij op</button>
+      <p class="status" id="status" role="status"></p>
+    </form>
+    <p class="hulp">Bij gebruik van dit rekenmodel slaan we je invoer en uitkomst anoniem op, zonder cookies en zonder IP-adres, om het model te verbeteren. Je mailadres bewaren we alleen als je het hierboven invult en toestemming geeft.</p>
+  </aside>
+</div>
+
+<section class="bronnen wrap" id="bronnen" aria-labelledby="h-bronnen">
+  <h2 id="h-bronnen">Bronnen en kanttekeningen</h2>
+  <div class="tabelwrap">
+  <table class="br">
+    <thead><tr><th>Gegeven</th><th>Waarde</th><th>Bron</th><th>Betrouwbaarheid</th></tr></thead>
+    <tbody>
+      <tr><td>Conversie aanvraag naar klant, branchegemiddelde</td><td>5 tot 8%</td><td><a class="ext" href="https://salesqueze.com/spa-solutions-story/" rel="noopener" target="_blank">SaleSqueze, casus Spa Solutions</a></td><td>Leverancier van configurators, geen bron voor het gemiddelde genoemd.</td></tr>
+      <tr><td>Conversie met configurator in die casus</td><td>17,2%</td><td><a class="ext" href="https://salesqueze.com/spa-solutions-story/" rel="noopener" target="_blank">SaleSqueze, casus Spa Solutions</a></td><td>Zelf gerapporteerd, geen controlegroep, andere productgroep.</td></tr>
+      <tr><td>Funnel Spolding and Sons (Britse tuinkamers)</td><td>5.816 bezoeken, 475 aanvragen, 167 ontwerpen, 3x verkoop</td><td><a class="ext" href="https://salesqueze.com/customers/stories/spolding-and-sons/" rel="noopener" target="_blank">SaleSqueze, casus Spolding and Sons</a></td><td>Casus van de leverancier. Belangrijkste les: de configurator alleen bewoog weinig, pas met een volledige funnel eromheen steeg de verkoop.</td></tr>
+      <tr><td>Hogere conversie door geautomatiseerde offertes</td><td>+25%</td><td><a class="ext" href="https://www.ar-range.app/solutions/knowledge-base/what-business-kpis-can-a-configurator-improve" rel="noopener" target="_blank">AR-range</a></td><td>Marketingclaim zonder basislijn.</td></tr>
+      <tr><td>Brutomarge detailhandel, algemeen</td><td>20 tot 40%</td><td><a class="ext" href="https://beancount.io/nl/blog/2026/04/06/what-is-a-good-profit-margin-by-industry-benchmarks-and-tips" rel="noopener" target="_blank">Beancount</a></td><td>Generieke bandbreedte, niet specifiek voor tuinhuizen.</td></tr>
+      <tr><td>Gemiddelde orderwaarde tuinhuizen NL</td><td>12.000 tot 18.000 euro</td><td>Opgave van de verkoper</td><td>Eigen praktijkcijfer, niet getoetst aan een branchebron.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <ul class="kanttekening">
+    <li>Vrijwel alle conversiecijfers komen van partijen die configurators verkopen. Zie ze als bovengrens.</li>
+    <li>Het model rekent met jaargemiddelden. Tuinhuizen zijn seizoensgebonden, dus de pieken en dalen per maand zijn hier niet zichtbaar.</li>
+    <li>De uitkomst is zo goed als je invoer. Zet in de pilot je eigen cijfers naast deze aannames voordat je er een besluit op baseert.</li>
+    <li>Het model ziet alleen de marge. Tijd van je verkopers, bezoeken ter plaatse en retouren zitten er niet in.</li>
+  </ul>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">&copy; 2026 collegaai.nl &middot; <a href="/privacy.html">Privacyverklaring</a> &middot; Rekenmodel, geen aanbod of garantie.</div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+// Supabase: vul in na het aanmaken van de tabel (zie supabase/tuinhuis_sessies.sql).
+// De anon-sleutel is bedoeld om in de browser te staan; de beveiliging zit in de RLS-regels.
+var SUPABASE_URL = '';   // bijv. https://abcdxyz.supabase.co
+var SUPABASE_KEY = '';   // anon public key
+var TABEL = 'tuinhuis_sessies';
+var MAX_REGELS_PER_SESSIE = 40;
+
+var $ = function(id){return document.getElementById(id);};
+var sessieId = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now())+'-'+Math.random().toString(16).slice(2);
+var start = Date.now();
+var verstuurd = 0, timer = null, scenario = 'voorzichtig';
+var bronnenGeopend = [];
+
+var SCEN = {
+  geen:{xLeads:0,xTeken:0,xExtra:0},
+  voorzichtig:{xLeads:5,xTeken:5,xExtra:3},
+  verwacht:{xLeads:15,xTeken:12,xExtra:8},
+  ambitieus:{xLeads:30,xTeken:25,xExtra:15}
+};
+
+function num(id){var v=parseFloat($(id).value);return isFinite(v)?v:0;}
+function eur(x){return new Intl.NumberFormat('nl-NL',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(Math.round(x));}
+function getal(x,d){return new Intl.NumberFormat('nl-NL',{maximumFractionDigits:d||0}).format(x);}
+
+function invoer(){
+  return {
+    leads:num('leads'),offerte:num('offerte')/100,teken:num('teken')/100,prijs:num('prijs'),marge:num('marge')/100,
+    extraAandeel:num('extraAandeel')/100,extraWaarde:num('extraWaarde'),extraMarge:num('extraMarge')/100,gebruik:num('gebruik')/100,
+    xLeads:num('xLeads')/100,xTeken:num('xTeken')/100,xExtra:num('xExtra')/100,
+    model:document.querySelector('input[name=model]:checked').value,
+    tLink:num('tLink'),tLinkH:num('tLinkH'),tComm:num('tComm')/100
+  };
+}
+
+// Pure rekenfunctie. s schaalt het effect van de drie schuiven (voor break-even).
+function bereken(i,s){
+  s = (s===undefined)?1:s;
+  var l0=12*i.leads, o0=l0*i.offerte*i.teken;
+  var e0=o0*i.extraAandeel*i.extraWaarde;
+  var m0=o0*i.prijs*i.marge + e0*i.extraMarge;
+  var l1=l0*(1+i.xLeads*s);
+  var t1=Math.min(1,i.teken*(1+i.xTeken*s));
+  var a1=Math.min(1,i.extraAandeel+i.xExtra*s);
+  var o1=l1*i.offerte*t1;
+  var e1=o1*a1*i.extraWaarde;
+  var m1=o1*i.prijs*i.marge + e1*i.extraMarge;
+  var links=l1*i.gebruik;
+  var extraOmzet=Math.max(0,e1-e0);
+  var kosten = i.model==='link' ? links*i.tLink : links*i.tLinkH + i.tComm*extraOmzet;
+  var extra=m1-m0;
+  return {l0:l0,l1:l1,o0:o0,o1:o1,e0:e0,e1:e1,m0:m0,m1:m1,links:links,extra:extra,kosten:kosten,netto:extra-kosten};
+}
+
+function breakEven(i){
+  if(bereken(i,3).netto<0) return null;
+  var lo=0,hi=3;
+  for(var k=0;k<40;k++){var mid=(lo+hi)/2; if(bereken(i,mid).netto>=0) hi=mid; else lo=mid;}
+  return hi;
+}
+
+function render(){
+  var i=invoer(), r=bereken(i), nul=bereken(i,0), be=breakEven(i);
+  $('o-xLeads').textContent='+'+Math.round(i.xLeads*100)+'%';
+  $('o-xTeken').textContent='+'+Math.round(i.xTeken*100)+'%';
+  $('o-xExtra').textContent='+'+Math.round(i.xExtra*100)+' pp';
+  $('h-totaal').textContent='Samen komt dat op '+getal(i.offerte*i.teken*100,1)+'% van de aanvragen die klant worden.';
+  var n=$('r-netto'); n.textContent=eur(r.netto); n.className='g'+(r.netto<0?' neg':'');
+  $('r-zin').textContent = r.netto>=0
+    ? 'Na aftrek van '+eur(r.kosten)+' voor de tool, bij '+getal(r.links)+' links per jaar.'
+    : 'Bij deze instellingen kost de tool meer dan hij oplevert. Kijk hieronder naar het break-evenpunt.';
+  $('t-l0').textContent=getal(r.l0); $('t-l1').textContent=getal(r.l1);
+  $('t-o0').textContent=getal(r.o0,1); $('t-o1').textContent=getal(r.o1,1);
+  $('t-e0').textContent=eur(r.e0); $('t-e1').textContent=eur(r.e1);
+  $('t-m0').textContent=eur(r.m0); $('t-m1').textContent=eur(r.m1);
+  $('r-extra').textContent=eur(r.extra)+' per jaar';
+  $('r-kosten').textContent=eur(r.kosten)+' per jaar ('+eur(r.kosten/12)+' per maand)';
+  $('r-roi').textContent = r.kosten>0 ? 'Elke euro aan toolkosten levert '+getal(r.extra/r.kosten,1)+' euro extra marge op.' : 'Geen kosten ingevuld.';
+  $('r-be').textContent = be===null ? 'Zelfs bij driemaal het gekozen effect is het niet rendabel.' : 'Je hebt minstens '+Math.round(be*100)+'% van het gekozen effect nodig om uit de kosten te komen.';
+  $('r-nul').innerHTML = 'Je betaalt dan '+eur(nul.kosten)+' per jaar ('+getal(nul.links)+' links) en verdient niets extra. <span class="neg">Dat is je maximale verlies op jaarbasis.</span>';
+  $('verstuur').disabled = !($('toest').checked && /.+@.+\..+/.test($('email').value));
+  return {i:i,r:r,be:be};
+}
+
+function opslaan(gebeurtenis, extra){
+  if(!SUPABASE_URL||!SUPABASE_KEY) return Promise.resolve(false);
+  if(verstuurd>=MAX_REGELS_PER_SESSIE && gebeurtenis!=='contact') return Promise.resolve(false);
+  var st=render(), i=st.i, r=st.r;
+  var body={
+    sessie_id:sessieId, gebeurtenis:gebeurtenis, scenario:scenario, prijsmodel:i.model,
+    invoer:i, resultaat:{netto:Math.round(r.netto),extra_marge:Math.round(r.extra),kosten:Math.round(r.kosten),links:Math.round(r.links),break_even:st.be},
+    bronnen_geopend:bronnenGeopend, seconden_op_pagina:Math.round((Date.now()-start)/1000)
+  };
+  if(extra){for(var k in extra){body[k]=extra[k];}}
+  verstuurd++;
+  return fetch(SUPABASE_URL+'/rest/v1/'+TABEL,{
+    method:'POST', keepalive:true,
+    headers:{'Content-Type':'application/json','apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY,'Prefer':'return=minimal'},
+    body:JSON.stringify(body)
+  }).then(function(res){return res.ok;}).catch(function(){return false;});
+}
+
+function gewijzigd(){
+  render();
+  clearTimeout(timer);
+  timer=setTimeout(function(){opslaan('wijziging');},1800);
+}
+
+function zetScenario(naam){
+  scenario=naam;
+  var v=SCEN[naam];
+  ['xLeads','xTeken','xExtra'].forEach(function(k){$(k).value=v[k];});
+  document.querySelectorAll('[data-scen]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.scen===naam));});
+}
+
+document.querySelectorAll('input').forEach(function(el){
+  el.addEventListener('input',function(){
+    if(el.type==='range'){scenario='eigen';document.querySelectorAll('[data-scen]').forEach(function(b){b.setAttribute('aria-pressed','false');});}
+    if(el.id==='email'||el.id==='toest'){render();return;}
+    gewijzigd();
+  });
+});
+document.querySelectorAll('[data-scen]').forEach(function(b){
+  b.addEventListener('click',function(){zetScenario(b.dataset.scen);gewijzigd();});
+});
+document.querySelectorAll('.chip[data-bron]').forEach(function(c){
+  c.addEventListener('click',function(){
+    var p=$(c.dataset.bron), open=!p.classList.contains('open');
+    p.classList.toggle('open',open); c.setAttribute('aria-expanded',String(open));
+    if(open && bronnenGeopend.indexOf(c.dataset.bron)<0){bronnenGeopend.push(c.dataset.bron);opslaan('bron_geopend');}
+  });
+});
+document.querySelectorAll('a.ext').forEach(function(a){
+  a.addEventListener('click',function(){
+    if(bronnenGeopend.indexOf('klik:'+a.href)<0){bronnenGeopend.push('klik:'+a.href);}
+    opslaan('bron_link_geklikt');
+  });
+});
+$('lead').addEventListener('submit',function(e){
+  e.preventDefault();
+  var s=$('status'); s.textContent='Bezig met versturen...';
+  if(!SUPABASE_URL||!SUPABASE_KEY){s.textContent='Opslaan is nog niet gekoppeld. Mail naar info [at] collegaai.nl.';return;}
+  opslaan('contact',{email:$('email').value.trim(),toestemming:true}).then(function(ok){
+    s.textContent = ok ? 'Bedankt, ik neem contact met je op.' : 'Versturen is niet gelukt. Mail naar info [at] collegaai.nl.';
+    if(ok){$('verstuur').disabled=true;}
+  });
+});
+
+zetScenario('voorzichtig');
+render();
+if(typeof window!=='undefined'){window.__calc={bereken:bereken,breakEven:breakEven};}
+})();
+</script>
+</body>
+</html>
