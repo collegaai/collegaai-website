@@ -210,6 +210,24 @@ footer a{color:var(--oranje);}
         <div class="inv"><input type="range" id="seoKosten" min="0" max="5000" step="100" value="1000" data-unit="€" aria-describedby="v-seoKosten"><output class="uit" id="v-seoKosten" for="seoKosten"></output></div>
         <p class="bron" id="b-sk">Voorbeeldwaarde, het tarief van de partner. Dit zijn de enige vaste kosten in het model en komen niet van collegaai.</p></div>
     </div>
+
+    <div class="paneel" aria-labelledby="h-ads">
+      <h2 id="h-ads">5. Google Ads naar de configurator (optioneel)</h2>
+      <p class="hulp" style="margin-bottom:12px">Heeft je site weinig bezoekers, dan koop je ze met Google Ads en stuur je ze naar de configurator als landingspagina. Het budget gaat naar Google, het is variabel en je kunt het elke week bijsturen.</p>
+      <div class="veld"><label for="adBudget"><span>Advertentiebudget per maand</span><button type="button" class="chip" data-bron="b-ab" aria-expanded="false">Jouw keuze</button></label>
+        <div class="inv"><input type="range" id="adBudget" min="0" max="10000" step="250" value="1500" data-unit="€" aria-describedby="v-adBudget"><output class="uit" id="v-adBudget" for="adBudget"></output></div>
+        <p class="bron" id="b-ab">Het budget dat je zelf kiest. Begin klein: een test van enkele weken geeft je eigen klikprijs en conversie.</p></div>
+      <div class="veld"><label for="adCpc"><span>Kosten per klik</span><button type="button" class="chip" data-bron="b-cpc" aria-expanded="false">Indicatie</button></label>
+        <div class="inv"><input type="range" id="adCpc" min="0.5" max="8" step="0.1" value="2" data-unit="€" aria-describedby="v-adCpc"><output class="uit" id="v-adCpc" for="adCpc"></output></div>
+        <p class="bron" id="b-cpc">Nederlandse adviesbureaus noemen gemiddeld ongeveer 1,92 tot 2,15 euro per klik voor Search, met een bandbreedte van 0,80 tot 3,00 euro (<a class="ext" href="https://searchlab.nl/statistieken/google-ads-statistieken-2026" rel="noopener" target="_blank">Searchlab</a>). Er zijn geen cijfers voor tuinhuizen gevonden. De Amerikaanse benchmark voor home improvement ligt veel hoger, op ongeveer 8 dollar (<a class="ext" href="https://theadspend.com/blog/google-ads-search-home-improvement" rel="noopener" target="_blank">The Ad Spend</a>). Controleer je echte klikprijs in de Keyword Planner van Google Ads.</p></div>
+      <div class="veld"><label for="adConv"><span>Klikken die een aanvraag achterlaten</span><button type="button" class="chip" data-bron="b-ac" aria-expanded="false">Leverancier</button></label>
+        <div class="inv"><input type="range" id="adConv" min="1" max="15" step="0.5" value="4" data-unit="%" aria-describedby="v-adConv"><output class="uit" id="v-adConv" for="adConv"></output></div>
+        <p class="bron" id="b-ac">De leverancier SaleSqueze meldt 8,17% op een landingspagina met configurator en een aanvraagformulier bij de casus Spolding and Sons, en zegt dat 1 tot 3% gebruikelijk is voor landingspagina&rsquo;s (<a class="ext" href="https://salesqueze.com/how-a-uk-garden-room-business-3x-their-sales-s/" rel="noopener" target="_blank">SaleSqueze</a>). Zonder onafhankelijke bron. 4% is een voorzichtige middenwaarde, 8% een gunstig geval. Een site zonder reviews of foto&rsquo;s converteert vermoedelijk lager.</p></div>
+      <div class="veld"><label for="adKw"><span>Tekenkans van advertentie-aanvragen, t.o.v. gewone aanvragen</span><button type="button" class="chip" data-bron="b-ak" aria-expanded="false">Aanname</button></label>
+        <div class="inv"><input type="range" id="adKw" min="30" max="100" step="5" value="70" data-unit="%" aria-describedby="v-adKw"><output class="uit" id="v-adKw" for="adKw"></output></div>
+        <p class="bron" id="b-ak">Aanname. Wie via een advertentie komt, kent je bedrijf nog niet en tekent doorgaans minder snel dan iemand die je al kent. Meet dit in je eigen cijfers.</p></div>
+      <p class="hulp" id="ads-uit" aria-live="polite"></p>
+    </div>
   </div>
 
   <aside class="sticky" aria-label="Uitkomst">
@@ -281,6 +299,9 @@ footer a{color:var(--oranje);}
       <tr><td>Funnel Spolding and Sons (Britse tuinkamers)</td><td>5.816 bezoeken, 475 aanvragen, 167 ontwerpen, 3x verkoop</td><td><a class="ext" href="https://salesqueze.com/customers/stories/spolding-and-sons/" rel="noopener" target="_blank">SaleSqueze, casus Spolding and Sons</a></td><td>Casus van de leverancier. Belangrijkste les: de configurator alleen bewoog weinig, pas met een volledige funnel eromheen steeg de verkoop.</td></tr>
       <tr><td>Hogere conversie door geautomatiseerde offertes</td><td>+25%</td><td><a class="ext" href="https://www.ar-range.app/solutions/knowledge-base/what-business-kpis-can-a-configurator-improve" rel="noopener" target="_blank">AR-range</a></td><td>Marketingclaim zonder basislijn.</td></tr>
       <tr><td>Brutomarge detailhandel, algemeen</td><td>20 tot 40%</td><td><a class="ext" href="https://beancount.io/nl/blog/2026/04/06/what-is-a-good-profit-margin-by-industry-benchmarks-and-tips" rel="noopener" target="_blank">Beancount</a></td><td>Generieke bandbreedte, niet specifiek voor tuinhuizen.</td></tr>
+      <tr><td>Kosten per klik Google Search, Nederland</td><td>circa 1,92 tot 2,15 euro (bandbreedte 0,80 tot 3,00)</td><td><a class="ext" href="https://searchlab.nl/statistieken/google-ads-statistieken-2026" rel="noopener" target="_blank">Searchlab</a></td><td>Adviesbureau, niet specifiek voor tuinhuizen. Cijfers verschillen per pagina.</td></tr>
+      <tr><td>Kosten per klik home improvement, VS</td><td>circa 8 dollar, 8% klik naar aanvraag</td><td><a class="ext" href="https://theadspend.com/blog/google-ads-search-home-improvement" rel="noopener" target="_blank">The Ad Spend (WordStream-data)</a></td><td>Amerikaanse markt en brede categorie. Laat zien dat de klikprijs voor duurdere woonaankopen veel hoger kan liggen.</td></tr>
+      <tr><td>Klik naar aanvraag op landingspagina met configurator</td><td>8,17% bij een casus, 1 tot 3% gebruikelijk volgens de leverancier</td><td><a class="ext" href="https://salesqueze.com/how-a-uk-garden-room-business-3x-their-sales-s/" rel="noopener" target="_blank">SaleSqueze</a></td><td>Casus van de leverancier, via Meta-advertenties. Gunstig geval, geen planningscijfer.</td></tr>
       <tr><td>Gemiddelde orderwaarde tuinhuizen NL</td><td>12.000 tot 18.000 euro</td><td>Opgave van de verkoper</td><td>Eigen praktijkcijfer, niet getoetst aan een branchebron.</td></tr>
     </tbody>
   </table>
@@ -331,7 +352,7 @@ function invoer(){
     extraAandeel:num('extraAandeel')/100,extraWaarde:num('extraWaarde'),extraMarge:num('extraMarge')/100,gebruik:num('gebruik')/100,
     xLeads:num('xLeads')/100,xTeken:num('xTeken')/100,xExtra:num('xExtra')/100,
     model:document.querySelector('input[name=model]:checked').value,
-    mkt:num('mkt'),vervolg:num('vervolg')/100,seoEffect:num('seoEffect')/100,seoKosten:num('seoKosten'),tLink:num('tLink'),tLinkH:num('tLinkH'),tComm:num('tComm')/100,tPart:num('tPart')/100,tDrempel:num('tDrempel')
+    mkt:num('mkt'),vervolg:num('vervolg')/100,seoEffect:num('seoEffect')/100,adBudget:num('adBudget'),adCpc:num('adCpc'),adConv:num('adConv')/100,adKw:num('adKw')/100,seoKosten:num('seoKosten'),tLink:num('tLink'),tLinkH:num('tLinkH'),tComm:num('tComm')/100,tPart:num('tPart')/100,tDrempel:num('tDrempel')
   };
 }
 
@@ -343,10 +364,12 @@ function bereken(i,s,o){
   var l0=12*i.leads, o0=l0*i.offerte*i.teken;
   var e0=o0*i.extraAandeel*i.extraWaarde;
   var m0=o0*i.prijs*i.marge + e0*i.extraMarge;
-  var l1=l0*(1+i.xLeads*s)*(o.seo?1+i.seoEffect:1);
+  var lOrg=l0*(1+i.xLeads*s)*(o.seo?1+i.seoEffect:1);
+  var lAd=o.ads?12*(i.adBudget/Math.max(i.adCpc,0.01))*i.adConv:0;
+  var l1=lOrg+lAd;
   var t1=Math.min(1,i.teken*(1+i.xTeken*s));
   var a1=Math.min(1,i.extraAandeel+i.xExtra*s);
-  var o1=l1*i.offerte*t1;
+  var o1=(lOrg+lAd*i.adKw)*i.offerte*t1;
   var e1=o1*a1*i.extraWaarde;
   var m1=o1*i.prijs*i.marge + e1*i.extraMarge;
   var links=o.config?l1*i.gebruik:0;
@@ -356,7 +379,7 @@ function bereken(i,s,o){
   var mk=12*i.mkt, a0=i.extraAandeel;
   var basis=i.prijs*i.marge*(1+i.vervolg);
   var ltv0=basis+a0*i.extraWaarde*i.extraMarge, ltv1=basis+a1*i.extraWaarde*i.extraMarge;
-  var seoKost=o.seo?12*i.seoKosten:0;
+  var seoKost=(o.seo?12*i.seoKosten:0)+(o.ads?12*i.adBudget:0);
   var cac0=o0>0?mk/o0:0, cac1=o1>0?(mk+kosten+seoKost)/o1:0;
   return {l0:l0,l1:l1,o0:o0,o1:o1,e0:e0,e1:e1,m0:m0,m1:m1,links:links,extra:extra,kosten:kosten,netto:extra-kosten-seoKost,seoKost:seoKost,cac0:cac0,cac1:cac1,ltv0:ltv0,ltv1:ltv1};
 }
@@ -371,7 +394,7 @@ function breakEven(i){
 function uitlezing(){
   document.querySelectorAll('input[data-unit]').forEach(function(el){
     var u=el.dataset.unit, v=parseFloat(el.value), o=$('v-'+el.id);
-    o.textContent = u==='€' ? eur(v) : getal(v,v%1?1:0)+' '+u.replace('/mnd','per mnd');
+    o.textContent = u==='€' ? (parseFloat(el.step)<1 ? new Intl.NumberFormat('nl-NL',{style:'currency',currency:'EUR'}).format(v) : eur(v)) : getal(v,v%1?1:0)+' '+u.replace('/mnd','per mnd');
   });
 }
 
@@ -395,13 +418,15 @@ function render(){
   $('t-m0').textContent=eur(r.m0); $('t-m1').textContent=eur(r.m1);
   $('r-extra').textContent=eur(r.extra)+' per jaar';
   $('r-kosten').textContent=eur(r.kosten)+' per jaar, alleen variabel';
-  var cmb=[['Alleen configurator',{config:true,seo:false}],['Alleen SEO en GEO',{config:false,seo:true}],['Beide',{config:true,seo:true}]];
+  var cmb=[['Alleen configurator',{config:true,seo:false}],['Alleen SEO en GEO',{config:false,seo:true}],['Beide',{config:true,seo:true}],['Configurator en Google Ads',{config:true,seo:false,ads:true}]];
   $('combi').innerHTML=cmb.map(function(c){var a=bereken(i,1,c[1]);return '<tr><td>'+c[0]+'</td><td class="'+(a.netto<0?'neg':'pos')+'">'+eur(a.netto)+'</td><td>'+eur(a.cac1)+'</td><td>'+(a.cac1>0?getal(a.ltv1/a.cac1,1)+' : 1':'-')+'</td></tr>';}).join('');
   var namen={link:'Starter',hybride:'Groei',partner:'Partner'};
   $('vergelijk').innerHTML=['link','hybride','partner'].map(function(m){var a=bereken(Object.assign({},i,{model:m})),z=bereken(Object.assign({},i,{model:m}),0);return '<tr><td>'+namen[m]+(m===i.model?' \u2713':'')+'</td><td>'+eur(a.kosten)+'</td><td class="'+(a.netto<0?'neg':'pos')+'">'+eur(a.netto)+'</td><td>'+eur(z.kosten)+'</td></tr>';}).join('');
   $('r-roi').textContent = r.kosten>0 ? 'Elke euro aan toolkosten levert '+getal(r.extra/r.kosten,1)+' euro extra marge op.' : 'Geen kosten ingevuld.';
   $('r-be').textContent = be===null ? 'Zelfs bij driemaal het gekozen effect is het niet rendabel.' : 'Je hebt minstens '+Math.round(be*100)+'% van het gekozen effect nodig om uit de kosten te komen.';
   $('r-nul').innerHTML = nul.kosten===0 ? 'Je betaalt dan niets en verliest niets.' : 'Je betaalt dan '+eur(nul.kosten)+' per jaar ('+getal(nul.links)+' links) en verdient niets extra. <span class="neg">Dat is je maximale verlies op jaarbasis.</span>';
+  var cpl=i.adConv>0?i.adCpc/i.adConv:0, kl=i.offerte*i.teken*i.adKw, cacAd=kl>0?cpl/kl:0;
+  $('ads-uit').textContent='Kosten per aanvraag via advertenties: '+eur(cpl)+'. Kosten per klant via advertenties, alleen advertentiekosten: '+eur(cacAd)+', tegenover een marge van '+eur(i.prijs*i.marge)+' op het tuinhuis zelf.';
   $('verstuur').disabled = !($('toest').checked && /.+@.+\..+/.test($('email').value));
   return {i:i,r:r,be:be};
 }
